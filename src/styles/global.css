@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+@layer utilities {
+  .btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-md text-sm font-medium font-body text-white bg-highlight hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-300;
+  }
+  input.form-input{
+    @apply p-3 rounded-md border shadow-md border-gray-300 font-body text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-300;
+  }
+
+}
+
+
+img {
+  @apply select-none;
+}
