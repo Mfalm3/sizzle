@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import RecipeCard from "../components/RecipeCard"
 import EmptyPlate from "../components/EmptyPlate"
 import IngredientInput from "../components/IngredientInput"
+import PhotoScan from "../components/PhotoScan"
 import SplitText from "../components/motion/SplitText"
 import AnimatedNumber from "../components/motion/AnimatedNumber"
 import { ease } from "../lib/motion"
@@ -123,6 +124,18 @@ const PantryPage = ({ data, location }) => {
     return catalog.some(entry => ingredientMatches(n, entry.n))
   }
 
+  // Ingredients read from a photo join the list, skipping any already on it.
+  const addScanned = names => {
+    const keys = new Set(state.have.map(name => normalizeIngredient(name).key))
+    const fresh = names.filter(name => {
+      const key = normalizeIngredient(name).key
+      if (!key || keys.has(key)) return false
+      keys.add(key)
+      return true
+    })
+    if (fresh.length) update({ have: [...state.have, ...fresh] })
+  }
+
   const results = useMemo(
     () => recommend(recipes, deferred),
     [recipes, deferred]
@@ -180,6 +193,7 @@ const PantryPage = ({ data, location }) => {
               Try an example: {EXAMPLE.join(", ")}
             </button>
           )}
+          <PhotoScan onAdd={addScanned} isKnown={isKnown} />
 
           <div className="mt-6 grid gap-6 border-t border-line pt-6 md:grid-cols-[1.4fr_1fr]">
             <IngredientInput

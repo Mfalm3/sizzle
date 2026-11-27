@@ -10,7 +10,7 @@ Sizzle: a Gatsby 5 + React 18 recipe site styled with Tailwind 3 and animated wi
 
 - `npm run develop`: dev server at http://localhost:8000 (GraphiQL at `/___graphql`)
 - `npm run build` / `npm run serve`: production build into `public/`, served on :9000
-- `npm test`: Node's built-in runner over `src/lib/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
+- `npm test`: Node's built-in runner over `src/**/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
 - `npm run clean`: clear `.cache/` and `public/`
 - `npm run format`: Prettier (`semi: false`, `arrowParens: "avoid"`)
 - `npm run format:check`: the same check CI runs
@@ -52,6 +52,8 @@ TheMealDB has no prep/cook times, servings, difficulty, ratings or nutrition. Do
 - The home hero dish is `siteMetadata.featuredRecipe` (a recipe slug), passed to the page query as context in `onCreatePage`; it falls back to the latest update when empty or unknown.
 - `data-noprint` hides elements in print; the recipe page is designed to print as ingredients followed by method.
 - `/pantry` ("Cook with what you have") recommends recipes from typed ingredients using `src/lib/pantry.js`. Matching is deterministic: names are normalized to word sets, a whole ingredient covers its forms and parts (tomato → chopped tomatoes, chicken → chicken breast) but never processed products or different foods sharing a word (tomato puree, coconut milk). Diet filters are inferred from ingredient names, conservatively. Tests in `src/lib/pantry.test.mjs` include cases found by running the matcher over all 790 recipes; rerun that kind of check after changing the word lists. Photo recognition and OCR were deferred.
+- **Photo scanning** on `/pantry`: `PhotoScan` (hidden unless `GATSBY_PANTRY_SCAN_ENABLED=true` at build) shrinks the photo to 1568px JPEG in the browser and posts it to the Gatsby Function `src/api/pantry/scan.js`. `src/services/pantryScan/` validates type, size and magic bytes, caches results by image hash, rate-limits per IP, and asks Claude (`claude-opus-5-5`, structured output) for `{ name, confidence }` items; key in `ANTHROPIC_API_KEY`. The cook reviews the list before anything is added; low-confidence guesses start unticked.
+- In Gatsby Functions, read env vars through `globalThis.process.env`: webpack replaces a bare `process.env` with `{}` at build time.
 - `/admin` is a read-only content overview with its own chrome (no `Layout`).
 - Newsletter form and footer social icons are config-driven via `siteMetadata.newsletterAction` / `siteMetadata.social` in `gatsby-config.js`; the newsletter section is hidden while `newsletterAction` is empty. `react-social-icons/component` needs each network registered by import (see `footer.js`).
 
