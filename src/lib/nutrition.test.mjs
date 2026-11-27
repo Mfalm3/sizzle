@@ -41,6 +41,31 @@ test("reads amounts and units from free-text measures", () => {
     unit: "juice",
     rest: "",
   })
+  assert.deepEqual(parseMeasure("3/4 cup"), {
+    amount: 0.75,
+    unit: "cup",
+    rest: "",
+  })
+  assert.deepEqual(parseMeasure("½ tsp"), {
+    amount: 0.5,
+    unit: "tsp",
+    rest: "",
+  })
+  assert.deepEqual(parseMeasure("1½ cups"), {
+    amount: 1.5,
+    unit: "cups",
+    rest: "",
+  })
+  assert.deepEqual(parseMeasure("2.5 kg"), {
+    amount: 2.5,
+    unit: "kg",
+    rest: "",
+  })
+  assert.deepEqual(parseMeasure("Juice of 1/2"), {
+    amount: 0.5,
+    unit: "juice",
+    rest: "",
+  })
   assert.equal(parseMeasure("Pinch"), null)
   assert.equal(parseMeasure("To taste"), null)
   assert.equal(parseMeasure(null), null)
@@ -76,6 +101,7 @@ test("explains what it can't count instead of guessing", () => {
   assert.match(reason("pepper", "1 tsp"), /black pepper and bell peppers/)
   assert.match(reason("unicorn dust", "1 tsp"), /no nutrition data/i)
   assert.match(reason("salt", null), /amount/i)
+  assert.match(reason("chicken", "5 boneless"), /unclear/i)
 })
 
 test("totals a recipe and reports coverage and gaps", () => {

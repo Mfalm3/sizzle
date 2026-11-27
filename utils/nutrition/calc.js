@@ -135,7 +135,17 @@ const VULGAR = {
   "⅔": 2 / 3,
   "¾": 3 / 4,
 }
-const QUANTITY = /(\d+(?:\.\d+)?)?\s*(?:(\d+)\/(\d+)|([⅛¼⅓½⅔¾]))?/
+// Mixed number ("1 1/2"), fraction ("3/4"), number with an optional vulgar fraction ("1 ½", "175"),
+// or a vulgar fraction alone ("½").
+const QUANTITY =
+  /^(?:(\d+)\s+(\d+)\/(\d+)|(\d+)\/(\d+)|(\d+(?:\.\d+)?)\s*([⅛¼⅓½⅔¾])?|([⅛¼⅓½⅔¾]))/
+
+const readQuantity = m => {
+  if (m[1]) return Number(m[1]) + Number(m[2]) / Number(m[3])
+  if (m[4]) return Number(m[4]) / Number(m[5])
+  if (m[6]) return Number(m[6]) + (m[7] ? VULGAR[m[7]] : 0)
+  return VULGAR[m[8]]
+}
 
 /** "3 cloves chopped" -> { amount: 3, unit: "cloves", rest: "chopped" }; null when there's no amount. */
 const parseMeasure = text => {
@@ -148,19 +158,7 @@ const parseMeasure = text => {
   const start = s.search(/[\d⅛¼⅓½⅔¾]/)
   if (start === -1) return null
   const m = s.slice(start).match(QUANTITY)
-  let amount = m[1] ? Number(m[1]) : 0
-  if (m[2]) {
-    // "1 1/2": a whole number followed by a fraction; "3/4" alone: the fraction only
-    const fraction = Number(m[2]) / Number(m[3])
-    amount =
-      m[1] && /\s/.test(m[0])
-        ? amount + fraction
-        : m[1]
-        ? Number(m[1].concat("")) && fraction
-        : fraction
-    if (m[1] && !/\s/.test(m[0].trim())) amount = fraction
-  }
-  if (m[4]) amount += VULGAR[m[4]]
+  const amount = readQuantity(m)
   if (!amount) return null
   const after = s.slice(start + m[0].length).trim()
   if (unitOverride) return { amount, unit: unitOverride, rest: after }
@@ -223,6 +221,9 @@ const toGrams = (parsed, food) => {
   const piece = unit in PIECES ? PIECES[unit] : null
   const each = itemWeight(food, size || piece)
   if (!each) return { reason: "No USDA weight for one of these" }
+  // "5 boneless" chicken is pieces, not five whole birds: counts of heavy items are ambiguous.
+  if (each > 500 && amount > 2)
+    return { reason: "The amount is unclear (whole items or pieces?)" }
   return { grams: amount * each }
 }
 

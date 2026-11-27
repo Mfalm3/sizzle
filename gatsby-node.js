@@ -4,6 +4,8 @@
  */
 const fetchAndCache = require("./utils/fetchAndCache")
 const { normalizeMeal, normalizeCategory } = require("./utils/recipes")
+const { recipeNutrition } = require("./utils/nutrition/calc")
+const nutritionData = require("./src/_data/nutrition.json")
 
 const API = "https://www.themealdb.com/api/json/v1/1"
 // The free API has no "list everything" call, so we pull every first letter.
@@ -36,6 +38,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       youtube: String
       source: String
       updatedAt: Date @dateformat
+      # Estimated from USDA data at build time; see utils/nutrition/calc.js
+      nutrition: JSON!
     }
     type Cuisine implements Node @dontInfer {
       name: String!
@@ -78,6 +82,10 @@ exports.sourceNodes = async ({
   const recipes = letters
     .flatMap(l => l.meals || [])
     .map(m => normalizeMeal(m, areaByCountry))
+    .map(r => ({
+      ...r,
+      nutrition: recipeNutrition(r.ingredients, nutritionData),
+    }))
 
   const seen = new Set()
   recipes.forEach(recipe => {

@@ -411,6 +411,9 @@
     "shallot": {
       "fdcId": "170499"
     },
+    "challots": {
+      "fdcId": "170499"
+    },
     "leek": {
       "fdcId": "169246"
     },
@@ -748,6 +751,12 @@
     "cardamom pods": {
       "fdcId": "170919"
     },
+    "ground cardomom": {
+      "fdcId": "170919"
+    },
+    "ground cardamom": {
+      "fdcId": "170919"
+    },
     "ground ginger": {
       "fdcId": "170926"
     },
@@ -833,6 +842,18 @@
       "fdcId": "171009"
     },
     "mustard": {
+      "fdcId": "172234",
+      "approx": true
+    },
+    "dijon mustard": {
+      "fdcId": "172234",
+      "approx": true
+    },
+    "english mustard": {
+      "fdcId": "172234",
+      "approx": true
+    },
+    "wholegrain mustard": {
       "fdcId": "172234",
       "approx": true
     },
@@ -993,6 +1014,236 @@
     },
     "salmon": {
       "fdcId": "175167"
+    },
+    "rice noodles": {
+      "fdcId": "169742"
+    },
+    "rice vermicelli": {
+      "fdcId": "169742"
+    },
+    "tomato sauce": {
+      "fdcId": "170054"
+    },
+    "passata": {
+      "fdcId": "170054"
+    },
+    "macaroni": {
+      "fdcId": "169736"
+    },
+    "spaghetti": {
+      "fdcId": "169736"
+    },
+    "pasta": {
+      "fdcId": "169736"
+    },
+    "penne": {
+      "fdcId": "169736"
+    },
+    "penne rigate": {
+      "fdcId": "169736"
+    },
+    "linguine": {
+      "fdcId": "169736"
+    },
+    "fettuccine": {
+      "fdcId": "169736"
+    },
+    "tagliatelle": {
+      "fdcId": "169736"
+    },
+    "farfalle": {
+      "fdcId": "169736"
+    },
+    "rigatoni": {
+      "fdcId": "169736"
+    },
+    "strong white bread flour": {
+      "fdcId": "168896"
+    },
+    "bread flour": {
+      "fdcId": "168896"
+    },
+    "paella rice": {
+      "fdcId": "168879",
+      "approx": true
+    },
+    "arborio rice": {
+      "fdcId": "168879",
+      "approx": true
+    },
+    "risotto rice": {
+      "fdcId": "168879",
+      "approx": true
+    },
+    "banana": {
+      "fdcId": "173944"
+    },
+    "bananas": {
+      "fdcId": "173944"
+    },
+    "raspberries": {
+      "fdcId": "167755"
+    },
+    "strawberries": {
+      "fdcId": "167762"
+    },
+    "blackberries": {
+      "fdcId": "173946"
+    },
+    "apples": {
+      "fdcId": "171688"
+    },
+    "apple": {
+      "fdcId": "171688"
+    },
+    "mango": {
+      "fdcId": "169910"
+    },
+    "dried apricots": {
+      "fdcId": "173941"
+    },
+    "fennel": {
+      "fdcId": "169385"
+    },
+    "rocket": {
+      "fdcId": "169387"
+    },
+    "red cabbage": {
+      "fdcId": "169977"
+    },
+    "kale": {
+      "fdcId": "168421"
+    },
+    "swede": {
+      "fdcId": "168454"
+    },
+    "butternut squash": {
+      "fdcId": "169295"
+    },
+    "lemongrass stalks": {
+      "fdcId": "168573"
+    },
+    "lemongrass": {
+      "fdcId": "168573"
+    },
+    "jalapeno": {
+      "fdcId": "168576"
+    },
+    "jalapenos": {
+      "fdcId": "168576"
+    },
+    "birds-eye chillies": {
+      "fdcId": "170106",
+      "approx": true
+    },
+    "bird's eye chilli": {
+      "fdcId": "170106",
+      "approx": true
+    },
+    "green olives": {
+      "fdcId": "169096"
+    },
+    "pine nuts": {
+      "fdcId": "170591"
+    },
+    "pistachio": {
+      "fdcId": "170184"
+    },
+    "pistachios": {
+      "fdcId": "170184"
+    },
+    "coconut cream": {
+      "fdcId": "170580"
+    },
+    "coconut": {
+      "reason": "“Coconut” could be fresh, dried or desiccated"
+    },
+    "cheese": {
+      "reason": "“Cheese” doesn't say which cheese"
+    },
+    "black beans": {
+      "fdcId": "175238",
+      "approx": true
+    },
+    "cannellini beans": {
+      "fdcId": "175204",
+      "approx": true
+    },
+    "butter beans": {
+      "fdcId": "174254",
+      "approx": true
+    },
+    "ground coriander": {
+      "fdcId": "170922"
+    },
+    "coriander seeds": {
+      "fdcId": "170922"
+    },
+    "marjoram": {
+      "fdcId": "170928"
+    },
+    "dried mint": {
+      "fdcId": "172239"
+    },
+    "star anise": {
+      "fdcId": "171316",
+      "approx": true
+    },
+    "cocoa powder": {
+      "fdcId": "169593"
+    },
+    "cocoa": {
+      "fdcId": "169593"
+    },
+    "molasses": {
+      "fdcId": "168820"
+    },
+    "black treacle": {
+      "fdcId": "168820"
+    },
+    "maple syrup": {
+      "fdcId": "169661"
+    },
+    "balsamic vinegar": {
+      "fdcId": "172241"
+    },
+    "sherry vinegar": {
+      "fdcId": "172240",
+      "approx": true
+    },
+    "lard": {
+      "fdcId": "171401"
+    },
+    "shortening": {
+      "fdcId": "171011"
+    },
+    "brandy": {
+      "fdcId": "174815",
+      "approx": true
+    },
+    "fish stock": {
+      "fdcId": "172885"
+    },
+    "sirloin steak": {
+      "fdcId": "168726"
+    },
+    "beef brisket": {
+      "fdcId": "168664"
+    },
+    "brisket": {
+      "fdcId": "168664"
+    },
+    "chicken legs": {
+      "fdcId": "172378"
+    },
+    "chicken leg": {
+      "fdcId": "172378"
+    },
+    "lamb leg": {
+      "fdcId": "174311"
+    },
+    "leg of lamb": {
+      "fdcId": "174311"
     }
   },
   "foods": {
@@ -1090,6 +1341,99 @@
           "amount": 1,
           "label": "tsp",
           "grams": 2
+        }
+      ]
+    },
+    "167755": {
+      "description": "Raspberries, raw",
+      "per100g": {
+        "kcal": 52,
+        "protein": 1.2,
+        "carbs": 11.94,
+        "fat": 0.65,
+        "fiber": 6.5,
+        "sugar": 4.42,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 123
+        },
+        {
+          "amount": 1,
+          "label": "pint as purchased, yields",
+          "grams": 312
+        },
+        {
+          "amount": 10,
+          "label": "raspberries",
+          "grams": 19
+        }
+      ]
+    },
+    "167762": {
+      "description": "Strawberries, raw",
+      "per100g": {
+        "kcal": 32,
+        "protein": 0.67,
+        "carbs": 7.68,
+        "fat": 0.3,
+        "fiber": 2,
+        "sugar": 4.89,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, halves",
+          "grams": 152
+        },
+        {
+          "amount": 1,
+          "label": "cup, pureed",
+          "grams": 232
+        },
+        {
+          "amount": 1,
+          "label": "cup, sliced",
+          "grams": 166
+        },
+        {
+          "amount": 1,
+          "label": "cup, whole",
+          "grams": 144
+        },
+        {
+          "amount": 1,
+          "label": "extra large (1-5/8\" dia)",
+          "grams": 27
+        },
+        {
+          "amount": 1,
+          "label": "large (1-3/8\" dia)",
+          "grams": 18
+        },
+        {
+          "amount": 1,
+          "label": "medium (1-1/4\" dia)",
+          "grams": 12
+        },
+        {
+          "amount": 1,
+          "label": "pint as purchased, yields",
+          "grams": 357
+        },
+        {
+          "amount": 1,
+          "label": "small (1\" dia)",
+          "grams": 7
+        },
+        {
+          "amount": 1,
+          "label": "NLEA serving",
+          "grams": 147
         }
       ]
     },
@@ -1267,6 +1611,25 @@
         }
       ]
     },
+    "168421": {
+      "description": "Kale, raw",
+      "per100g": {
+        "kcal": 35,
+        "protein": 2.92,
+        "carbs": 4.42,
+        "fat": 1.49,
+        "fiber": 4.1,
+        "sugar": 0.99,
+        "sodium": 53
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 21
+        }
+      ]
+    },
     "168448": {
       "description": "Pumpkin, raw",
       "per100g": {
@@ -1283,6 +1646,40 @@
           "amount": 1,
           "label": "cup (1\" cubes)",
           "grams": 116
+        }
+      ]
+    },
+    "168454": {
+      "description": "Rutabagas, raw",
+      "per100g": {
+        "kcal": 37,
+        "protein": 1.08,
+        "carbs": 8.62,
+        "fat": 0.16,
+        "fiber": 2.3,
+        "sugar": 4.46,
+        "sodium": 12
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, cubes",
+          "grams": 140
+        },
+        {
+          "amount": 1,
+          "label": "large",
+          "grams": 772
+        },
+        {
+          "amount": 1,
+          "label": "medium",
+          "grams": 386
+        },
+        {
+          "amount": 1,
+          "label": "small",
+          "grams": 192
         }
       ]
     },
@@ -1349,6 +1746,126 @@
         }
       ]
     },
+    "168573": {
+      "description": "Lemon grass (citronella), raw",
+      "per100g": {
+        "kcal": 99,
+        "protein": 1.82,
+        "carbs": 25.31,
+        "fat": 0.49,
+        "fiber": null,
+        "sugar": null,
+        "sodium": 6
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 67
+        },
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 4.8
+        }
+      ]
+    },
+    "168576": {
+      "description": "Peppers, jalapeno, raw",
+      "per100g": {
+        "kcal": 29,
+        "protein": 0.91,
+        "carbs": 6.5,
+        "fat": 0.37,
+        "fiber": 2.8,
+        "sugar": 4.12,
+        "sodium": 3
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, sliced",
+          "grams": 90
+        },
+        {
+          "amount": 1,
+          "label": "pepper",
+          "grams": 14
+        }
+      ]
+    },
+    "168664": {
+      "description": "Beef, brisket, whole, separable lean and fat, trimmed to 1/8\" fat, all grades, raw",
+      "per100g": {
+        "kcal": 253,
+        "protein": 18.42,
+        "carbs": 0.56,
+        "fat": 19.06,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 69
+      },
+      "portions": [
+        {
+          "amount": 4,
+          "label": "oz",
+          "grams": 113
+        },
+        {
+          "amount": 1,
+          "label": "lb",
+          "grams": 453.6
+        }
+      ]
+    },
+    "168726": {
+      "description": "Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, raw",
+      "per100g": {
+        "kcal": 201,
+        "protein": 20.3,
+        "carbs": 0,
+        "fat": 12.71,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 52
+      },
+      "portions": [
+        {
+          "amount": 4,
+          "label": "oz",
+          "grams": 113
+        },
+        {
+          "amount": 1,
+          "label": "steak",
+          "grams": 608
+        }
+      ]
+    },
+    "168820": {
+      "description": "Molasses",
+      "per100g": {
+        "kcal": 290,
+        "protein": 0,
+        "carbs": 74.73,
+        "fat": 0.1,
+        "fiber": 0,
+        "sugar": 74.72,
+        "sodium": 37
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 337
+        },
+        {
+          "amount": 1,
+          "label": "serving 1 tbsp",
+          "grams": 20
+        }
+      ]
+    },
     "168833": {
       "description": "Sugars, brown",
       "per100g": {
@@ -1407,6 +1924,25 @@
         }
       ]
     },
+    "168879": {
+      "description": "Rice, white, medium-grain, raw, enriched",
+      "per100g": {
+        "kcal": 360,
+        "protein": 6.61,
+        "carbs": 79.34,
+        "fat": 0.58,
+        "fiber": 1.4,
+        "sugar": null,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 195
+        }
+      ]
+    },
     "168894": {
       "description": "Wheat flour, white, all-purpose, enriched, bleached",
       "per100g": {
@@ -1445,6 +1981,25 @@
         }
       ]
     },
+    "168896": {
+      "description": "Wheat flour, white, bread, enriched",
+      "per100g": {
+        "kcal": 361,
+        "protein": 11.98,
+        "carbs": 72.53,
+        "fat": 1.66,
+        "fiber": 2.4,
+        "sugar": 0.31,
+        "sodium": 2
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 137
+        }
+      ]
+    },
     "169094": {
       "description": "Olives, ripe, canned (small-extra large)",
       "per100g": {
@@ -1471,6 +2026,25 @@
           "amount": 1,
           "label": "small",
           "grams": 3.2
+        }
+      ]
+    },
+    "169096": {
+      "description": "Olives, pickled, canned or bottled, green",
+      "per100g": {
+        "kcal": 145,
+        "protein": 1.03,
+        "carbs": 3.84,
+        "fat": 15.32,
+        "fiber": 3.3,
+        "sugar": 0.54,
+        "sodium": 1556
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "olive",
+          "grams": 2.7
         }
       ]
     },
@@ -1805,6 +2379,25 @@
         }
       ]
     },
+    "169295": {
+      "description": "Squash, winter, butternut, raw",
+      "per100g": {
+        "kcal": 45,
+        "protein": 1,
+        "carbs": 11.69,
+        "fat": 0.1,
+        "fiber": 2,
+        "sugar": 2.2,
+        "sodium": 4
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, cubes",
+          "grams": 140
+        }
+      ]
+    },
     "169383": {
       "description": "Peppers, sweet, yellow, raw",
       "per100g": {
@@ -1826,6 +2419,78 @@
           "amount": 10,
           "label": "strips",
           "grams": 52
+        }
+      ]
+    },
+    "169385": {
+      "description": "Fennel, bulb, raw",
+      "per100g": {
+        "kcal": 31,
+        "protein": 1.24,
+        "carbs": 7.3,
+        "fat": 0.2,
+        "fiber": 3.1,
+        "sugar": 3.93,
+        "sodium": 52
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, sliced",
+          "grams": 87
+        },
+        {
+          "amount": 1,
+          "label": "bulb",
+          "grams": 234
+        }
+      ]
+    },
+    "169387": {
+      "description": "Arugula, raw",
+      "per100g": {
+        "kcal": 25,
+        "protein": 2.58,
+        "carbs": 3.65,
+        "fat": 0.66,
+        "fiber": 1.6,
+        "sugar": 2.05,
+        "sodium": 27
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "leaf",
+          "grams": 2
+        },
+        {
+          "amount": 0.5,
+          "label": "cup",
+          "grams": 10
+        }
+      ]
+    },
+    "169593": {
+      "description": "Cocoa, dry powder, unsweetened",
+      "per100g": {
+        "kcal": 228,
+        "protein": 19.6,
+        "carbs": 57.9,
+        "fat": 13.7,
+        "fiber": 37,
+        "sugar": 1.75,
+        "sodium": 21
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 86
+        },
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 5.4
         }
       ]
     },
@@ -1926,6 +2591,35 @@
         }
       ]
     },
+    "169661": {
+      "description": "Syrups, maple",
+      "per100g": {
+        "kcal": 260,
+        "protein": 0.04,
+        "carbs": 67.04,
+        "fat": 0.06,
+        "fiber": 0,
+        "sugar": 60.46,
+        "sodium": 12
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 20
+        },
+        {
+          "amount": 1,
+          "label": "serving 1/4 cup",
+          "grams": 83
+        },
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 315
+        }
+      ]
+    },
     "169698": {
       "description": "Cornstarch",
       "per100g": {
@@ -1942,6 +2636,103 @@
           "amount": 1,
           "label": "cup",
           "grams": 128
+        }
+      ]
+    },
+    "169736": {
+      "description": "Pasta, dry, enriched",
+      "per100g": {
+        "kcal": 371,
+        "protein": 13.04,
+        "carbs": 74.67,
+        "fat": 1.51,
+        "fiber": 3.2,
+        "sugar": 2.67,
+        "sodium": 6
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup spaghetti",
+          "grams": 91
+        },
+        {
+          "amount": 2,
+          "label": "oz",
+          "grams": 57
+        },
+        {
+          "amount": 1,
+          "label": "cup elbows",
+          "grams": 122
+        },
+        {
+          "amount": 1,
+          "label": "cup penne",
+          "grams": 95
+        },
+        {
+          "amount": 1,
+          "label": "cup farfalle",
+          "grams": 81
+        },
+        {
+          "amount": 1,
+          "label": "cup rotini",
+          "grams": 96
+        },
+        {
+          "amount": 1,
+          "label": "cup shells",
+          "grams": 64
+        },
+        {
+          "amount": 1,
+          "label": "cup lasagna",
+          "grams": 90
+        }
+      ]
+    },
+    "169742": {
+      "description": "Rice noodles, dry",
+      "per100g": {
+        "kcal": 364,
+        "protein": 5.95,
+        "carbs": 80.18,
+        "fat": 0.56,
+        "fiber": 1.6,
+        "sugar": 0.12,
+        "sodium": 182
+      },
+      "portions": [
+        {
+          "amount": 2,
+          "label": "oz",
+          "grams": 57
+        }
+      ]
+    },
+    "169910": {
+      "description": "Mangos, raw",
+      "per100g": {
+        "kcal": 60,
+        "protein": 0.82,
+        "carbs": 14.98,
+        "fat": 0.38,
+        "fiber": 1.6,
+        "sugar": 13.66,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup pieces",
+          "grams": 165
+        },
+        {
+          "amount": 1,
+          "label": "fruit without refuse",
+          "grams": 336
         }
       ]
     },
@@ -2044,6 +2835,50 @@
           "amount": 1,
           "label": "leaf",
           "grams": 15
+        }
+      ]
+    },
+    "169977": {
+      "description": "Cabbage, red, raw",
+      "per100g": {
+        "kcal": 31,
+        "protein": 1.43,
+        "carbs": 7.37,
+        "fat": 0.16,
+        "fiber": 2.1,
+        "sugar": 3.83,
+        "sodium": 27
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, chopped",
+          "grams": 89
+        },
+        {
+          "amount": 1,
+          "label": "cup, shredded",
+          "grams": 70
+        },
+        {
+          "amount": 1,
+          "label": "head, large (about 5-1/2\" dia)",
+          "grams": 1134
+        },
+        {
+          "amount": 1,
+          "label": "leaf",
+          "grams": 23
+        },
+        {
+          "amount": 1,
+          "label": "head, medium (about 5\" dia)",
+          "grams": 839
+        },
+        {
+          "amount": 1,
+          "label": "head, small (4\" dia)",
+          "grams": 567
         }
       ]
     },
@@ -2359,6 +3194,25 @@
         }
       ]
     },
+    "170054": {
+      "description": "Tomato products, canned, sauce",
+      "per100g": {
+        "kcal": 24,
+        "protein": 1.2,
+        "carbs": 5.31,
+        "fat": 0.3,
+        "fiber": 1.5,
+        "sugar": 3.56,
+        "sodium": 474
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 245
+        }
+      ]
+    },
     "170106": {
       "description": "Peppers, hot chili, red, raw",
       "per100g": {
@@ -2496,6 +3350,35 @@
           "amount": 1,
           "label": "tbsp",
           "grams": 15
+        }
+      ]
+    },
+    "170184": {
+      "description": "Nuts, pistachio nuts, raw",
+      "per100g": {
+        "kcal": 560,
+        "protein": 20.16,
+        "carbs": 27.17,
+        "fat": 45.32,
+        "fiber": 10.6,
+        "sugar": 7.66,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 123
+        },
+        {
+          "amount": 1,
+          "label": "oz (49 kernels)",
+          "grams": 28.35
+        },
+        {
+          "amount": 1,
+          "label": "kernel",
+          "grams": 0.7
         }
       ]
     },
@@ -2996,6 +3879,59 @@
         }
       ]
     },
+    "170580": {
+      "description": "Nuts, coconut cream, raw (liquid expressed from grated meat)",
+      "per100g": {
+        "kcal": 330,
+        "protein": 3.63,
+        "carbs": 6.65,
+        "fat": 34.68,
+        "fiber": 2.2,
+        "sugar": null,
+        "sodium": 4
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 15
+        },
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 240
+        }
+      ]
+    },
+    "170591": {
+      "description": "Nuts, pine nuts, dried",
+      "per100g": {
+        "kcal": 673,
+        "protein": 13.69,
+        "carbs": 13.08,
+        "fat": 68.37,
+        "fiber": 3.7,
+        "sugar": 3.59,
+        "sodium": 2
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 135
+        },
+        {
+          "amount": 1,
+          "label": "oz (167 kernels)",
+          "grams": 28.35
+        },
+        {
+          "amount": 10,
+          "label": "nuts",
+          "grams": 1.7
+        }
+      ]
+    },
     "170845": {
       "description": "Cheese, mozzarella, whole milk",
       "per100g": {
@@ -3136,6 +4072,30 @@
         }
       ]
     },
+    "170922": {
+      "description": "Spices, coriander seed",
+      "per100g": {
+        "kcal": 298,
+        "protein": 12.37,
+        "carbs": 54.99,
+        "fat": 17.77,
+        "fiber": 41.9,
+        "sugar": null,
+        "sodium": 35
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tsp",
+          "grams": 1.8
+        },
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 5
+        }
+      ]
+    },
     "170923": {
       "description": "Spices, cumin seed",
       "per100g": {
@@ -3205,6 +4165,30 @@
           "amount": 1,
           "label": "tbsp",
           "grams": 5.2
+        }
+      ]
+    },
+    "170928": {
+      "description": "Spices, marjoram, dried",
+      "per100g": {
+        "kcal": 271,
+        "protein": 12.66,
+        "carbs": 60.56,
+        "fat": 7.04,
+        "fiber": 40.3,
+        "sugar": 4.09,
+        "sodium": 77
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tsp",
+          "grams": 0.6
+        },
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 1.7
         }
       ]
     },
@@ -3316,6 +4300,30 @@
           "amount": 1,
           "label": "packet",
           "grams": 10
+        }
+      ]
+    },
+    "171011": {
+      "description": "Shortening, household, soybean (partially hydrogenated)-cottonseed (partially hydrogenated)",
+      "per100g": {
+        "kcal": 884,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 100,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 0
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 12.8
+        },
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 205
         }
       ]
     },
@@ -3637,6 +4645,30 @@
         }
       ]
     },
+    "171316": {
+      "description": "Spices, anise seed",
+      "per100g": {
+        "kcal": 337,
+        "protein": 17.6,
+        "carbs": 50.02,
+        "fat": 15.9,
+        "fiber": 14.6,
+        "sugar": null,
+        "sodium": 16
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tsp, whole",
+          "grams": 2.1
+        },
+        {
+          "amount": 1,
+          "label": "tbsp, whole",
+          "grams": 6.7
+        }
+      ]
+    },
     "171319": {
       "description": "Spices, chili powder",
       "per100g": {
@@ -3802,6 +4834,30 @@
           "amount": 1,
           "label": "tbsp",
           "grams": 6.8
+        }
+      ]
+    },
+    "171401": {
+      "description": "Lard",
+      "per100g": {
+        "kcal": 902,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 100,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 0
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 12.8
+        },
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 205
         }
       ]
     },
@@ -3971,6 +5027,55 @@
           "amount": 1,
           "label": "cup",
           "grams": 275
+        }
+      ]
+    },
+    "171688": {
+      "description": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+      "per100g": {
+        "kcal": 52,
+        "protein": 0.26,
+        "carbs": 13.81,
+        "fat": 0.17,
+        "fiber": 2.4,
+        "sugar": 10.39,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, quartered or chopped",
+          "grams": 125
+        },
+        {
+          "amount": 1,
+          "label": "cup slices",
+          "grams": 109
+        },
+        {
+          "amount": 1,
+          "label": "large (3-1/4\" dia)",
+          "grams": 223
+        },
+        {
+          "amount": 1,
+          "label": "medium (3\" dia)",
+          "grams": 182
+        },
+        {
+          "amount": 1,
+          "label": "small (2-3/4\" dia)",
+          "grams": 149
+        },
+        {
+          "amount": 1,
+          "label": "extra small (2-1/2\" dia)",
+          "grams": 101
+        },
+        {
+          "amount": 1,
+          "label": "NLEA serving",
+          "grams": 242
         }
       ]
     },
@@ -4191,6 +5296,30 @@
         }
       ]
     },
+    "172239": {
+      "description": "Spearmint, dried",
+      "per100g": {
+        "kcal": 285,
+        "protein": 19.93,
+        "carbs": 52.04,
+        "fat": 6.03,
+        "fiber": 29.8,
+        "sugar": null,
+        "sodium": 344
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tsp",
+          "grams": 0.5
+        },
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 1.6
+        }
+      ]
+    },
     "172240": {
       "description": "Vinegar, red wine",
       "per100g": {
@@ -4220,6 +5349,35 @@
         }
       ]
     },
+    "172241": {
+      "description": "Vinegar, balsamic",
+      "per100g": {
+        "kcal": 88,
+        "protein": 0.49,
+        "carbs": 17.03,
+        "fat": 0,
+        "fiber": null,
+        "sugar": 14.95,
+        "sodium": 23
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "tbsp",
+          "grams": 16
+        },
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 255
+        },
+        {
+          "amount": 1,
+          "label": "tsp",
+          "grams": 5.3
+        }
+      ]
+    },
     "172336": {
       "description": "Oil, canola",
       "per100g": {
@@ -4246,6 +5404,45 @@
           "amount": 1,
           "label": "tsp",
           "grams": 4.5
+        }
+      ]
+    },
+    "172378": {
+      "description": "Chicken, broilers or fryers, leg, meat and skin, raw",
+      "per100g": {
+        "kcal": 214,
+        "protein": 16.37,
+        "carbs": 0.17,
+        "fat": 15.95,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 84
+      },
+      "portions": [
+        {
+          "amount": 4,
+          "label": "oz",
+          "grams": 113
+        },
+        {
+          "amount": 1,
+          "label": "leg, with skin (Sum of drumstick+thigh+back)",
+          "grams": 344
+        },
+        {
+          "amount": 1,
+          "label": "drumstick with skin",
+          "grams": 111
+        },
+        {
+          "amount": 1,
+          "label": "thigh with skin",
+          "grams": 185
+        },
+        {
+          "amount": 1,
+          "label": "back with skin",
+          "grams": 49
         }
       ]
     },
@@ -4428,6 +5625,25 @@
           "amount": 1,
           "label": "cup",
           "grams": 240
+        }
+      ]
+    },
+    "172885": {
+      "description": "Soup, stock, fish, home-prepared",
+      "per100g": {
+        "kcal": 16,
+        "protein": 2.26,
+        "carbs": 0,
+        "fat": 0.81,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 156
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 233
         }
       ]
     },
@@ -4895,6 +6111,103 @@
         }
       ]
     },
+    "173941": {
+      "description": "Apricots, dried, sulfured, uncooked",
+      "per100g": {
+        "kcal": 241,
+        "protein": 3.39,
+        "carbs": 62.64,
+        "fat": 0.51,
+        "fiber": 7.3,
+        "sugar": 53.44,
+        "sodium": 10
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, halves",
+          "grams": 130
+        },
+        {
+          "amount": 1,
+          "label": "half",
+          "grams": 3.5
+        }
+      ]
+    },
+    "173944": {
+      "description": "Bananas, raw",
+      "per100g": {
+        "kcal": 89,
+        "protein": 1.09,
+        "carbs": 22.84,
+        "fat": 0.33,
+        "fiber": 2.6,
+        "sugar": 12.23,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup, mashed",
+          "grams": 225
+        },
+        {
+          "amount": 1,
+          "label": "cup, sliced",
+          "grams": 150
+        },
+        {
+          "amount": 1,
+          "label": "extra small (less than 6\" long)",
+          "grams": 81
+        },
+        {
+          "amount": 1,
+          "label": "small (6\" to 6-7/8\" long)",
+          "grams": 101
+        },
+        {
+          "amount": 1,
+          "label": "medium (7\" to 7-7/8\" long)",
+          "grams": 118
+        },
+        {
+          "amount": 1,
+          "label": "large (8\" to 8-7/8\" long)",
+          "grams": 136
+        },
+        {
+          "amount": 1,
+          "label": "extra large (9\" or longer)",
+          "grams": 152
+        },
+        {
+          "amount": 1,
+          "label": "NLEA serving",
+          "grams": 126
+        }
+      ]
+    },
+    "173946": {
+      "description": "Blackberries, raw",
+      "per100g": {
+        "kcal": 43,
+        "protein": 1.39,
+        "carbs": 9.61,
+        "fat": 0.49,
+        "fiber": 5.3,
+        "sugar": 4.88,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 144
+        }
+      ]
+    },
     "174036": {
       "description": "Beef, ground, 80% lean meat / 20% fat, raw",
       "per100g": {
@@ -4967,6 +6280,25 @@
         }
       ]
     },
+    "174254": {
+      "description": "Lima beans, large, mature seeds, canned",
+      "per100g": {
+        "kcal": 79,
+        "protein": 4.93,
+        "carbs": 14.91,
+        "fat": 0.17,
+        "fiber": 4.8,
+        "sugar": null,
+        "sodium": 336
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 241
+        }
+      ]
+    },
     "174277": {
       "description": "Soy sauce made from soy and wheat (shoyu)",
       "per100g": {
@@ -5017,6 +6349,30 @@
           "amount": 1,
           "label": "can drained solids",
           "grams": 266
+        }
+      ]
+    },
+    "174311": {
+      "description": "Lamb, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+      "per100g": {
+        "kcal": 230,
+        "protein": 17.91,
+        "carbs": 0,
+        "fat": 17.07,
+        "fiber": 0,
+        "sugar": null,
+        "sodium": 56
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "oz",
+          "grams": 28.35
+        },
+        {
+          "amount": 1,
+          "label": "lb",
+          "grams": 453.6
         }
       ]
     },
@@ -5079,6 +6435,30 @@
           "amount": 1,
           "label": "tbsp",
           "grams": 18
+        }
+      ]
+    },
+    "174815": {
+      "description": "Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 80 proof",
+      "per100g": {
+        "kcal": 231,
+        "protein": 0,
+        "carbs": 0,
+        "fat": 0,
+        "fiber": 0,
+        "sugar": 0,
+        "sodium": 1
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "fl oz",
+          "grams": 27.8
+        },
+        {
+          "amount": 1,
+          "label": "jigger (1.5 fl oz)",
+          "grams": 42
         }
       ]
     },
@@ -5311,6 +6691,44 @@
           "amount": 3,
           "label": "oz",
           "grams": 85
+        }
+      ]
+    },
+    "175204": {
+      "description": "Beans, white, mature seeds, canned",
+      "per100g": {
+        "kcal": 114,
+        "protein": 7.26,
+        "carbs": 21.2,
+        "fat": 0.29,
+        "fiber": 4.8,
+        "sugar": 0.29,
+        "sodium": 340
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 262
+        }
+      ]
+    },
+    "175238": {
+      "description": "Beans, black, mature seeds, canned, low sodium",
+      "per100g": {
+        "kcal": 91,
+        "protein": 6.03,
+        "carbs": 16.55,
+        "fat": 0.29,
+        "fiber": 6.9,
+        "sugar": 0.23,
+        "sodium": 138
+      },
+      "portions": [
+        {
+          "amount": 1,
+          "label": "cup",
+          "grams": 240
         }
       ]
     }

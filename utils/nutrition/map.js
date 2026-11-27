@@ -216,7 +216,7 @@ module.exports = [
     "garlic cloves",
     "minced garlic",
   ]),
-  food("Shallots, raw", ["shallots", "shallot"]),
+  food("Shallots, raw", ["shallots", "shallot", "challots"]),
   food("Leeks, (bulb and lower leaf-portion), raw", ["leek", "leeks"]),
   food("Potatoes, flesh and skin, raw", ["potatoes", "potato"]),
   food("Carrots, raw", ["carrots", "carrot"]),
@@ -319,7 +319,12 @@ module.exports = [
   approx("Spices, cinnamon, ground", ["cinnamon stick", "cinnamon sticks"]),
   food("Spices, nutmeg, ground", ["nutmeg", "ground nutmeg"]),
   food("Spices, allspice, ground", ["allspice", "ground allspice"]),
-  food("Spices, cardamom", ["cardamom", "cardamom pods"]),
+  food("Spices, cardamom", [
+    "cardamom",
+    "cardamom pods",
+    "ground cardomom",
+    "ground cardamom",
+  ]),
   food("Spices, ginger, ground", ["ground ginger"]),
   food("Spices, turmeric, ground", ["turmeric", "ground turmeric"]),
   food("Spices, cloves, ground", ["cloves"]),
@@ -351,7 +356,12 @@ module.exports = [
   food("Soup, stock, beef, home-prepared", ["beef stock"]),
   approx("Soup, vegetable broth, ready to serve", ["vegetable stock"]),
   food("Salad dressing, mayonnaise, regular", ["mayonnaise"]),
-  approx("Mustard, prepared, yellow", ["mustard"]),
+  approx("Mustard, prepared, yellow", [
+    "mustard",
+    "dijon mustard",
+    "english mustard",
+    "wholegrain mustard",
+  ]),
   food("Vinegar, red wine", ["red wine vinegar"]),
   approx("Vinegar, red wine", ["white wine vinegar"]),
   food("Vinegar, distilled", ["vinegar", "white vinegar"]),
@@ -430,4 +440,97 @@ module.exports = [
   ]),
   food("Mollusks, squid, mixed species, raw", ["squid"]),
   food("Fish, salmon, Atlantic, farmed, raw", ["salmon"]),
+
+  // Second pass: the most used names that were still unmapped
+  food("Rice noodles, dry", ["rice noodles", "rice vermicelli"]),
+  food("Tomato products, canned, sauce", ["tomato sauce", "passata"]),
+  food("Pasta, dry, enriched", [
+    "macaroni",
+    "spaghetti",
+    "pasta",
+    "penne",
+    "penne rigate",
+    "linguine",
+    "fettuccine",
+    "tagliatelle",
+    "farfalle",
+    "rigatoni",
+  ]),
+  food("Wheat flour, white, bread, enriched", [
+    "strong white bread flour",
+    "bread flour",
+  ]),
+  approx("Rice, white, medium-grain, raw, enriched", [
+    "paella rice",
+    "arborio rice",
+    "risotto rice",
+  ]),
+  food("Bananas, raw", ["banana", "bananas"]),
+  food("Raspberries, raw", ["raspberries"]),
+  food("Strawberries, raw", ["strawberries"]),
+  food("Blackberries, raw", ["blackberries"]),
+  food(
+    "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+    ["apples", "apple"]
+  ),
+  food("Mangos, raw", ["mango"]),
+  food("Apricots, dried, sulfured, uncooked", ["dried apricots"]),
+  food("Fennel, bulb, raw", ["fennel"]),
+  food("Arugula, raw", ["rocket"]),
+  food("Cabbage, red, raw", ["red cabbage"]),
+  food("Kale, raw", ["kale"]),
+  food("Rutabagas, raw", ["swede"]),
+  food("Squash, winter, butternut, raw", ["butternut squash"]),
+  food("Lemon grass (citronella), raw", ["lemongrass stalks", "lemongrass"]),
+  food("Peppers, jalapeno, raw", ["jalapeno", "jalapenos"]),
+  approx("Peppers, hot chili, red, raw", [
+    "birds-eye chillies",
+    "bird's eye chilli",
+  ]),
+  food("Olives, pickled, canned or bottled, green", ["green olives"]),
+  food("Nuts, pine nuts, dried", ["pine nuts"]),
+  food("Nuts, pistachio nuts, raw", ["pistachio", "pistachios"]),
+  food("Nuts, coconut cream, raw (liquid expressed from grated meat)", [
+    "coconut cream",
+  ]),
+  unknown("“Coconut” could be fresh, dried or desiccated", ["coconut"]),
+  unknown("“Cheese” doesn't say which cheese", ["cheese"]),
+  approx("Beans, black, mature seeds, canned, low sodium", ["black beans"]),
+  approx("Beans, white, mature seeds, canned", ["cannellini beans"]),
+  approx("Lima beans, large, mature seeds, canned", ["butter beans"]),
+  food("Spices, coriander seed", ["ground coriander", "coriander seeds"]),
+  food("Spices, marjoram, dried", ["marjoram"]),
+  food("Spearmint, dried", ["dried mint"]),
+  approx("Spices, anise seed", ["star anise"]),
+  food("Cocoa, dry powder, unsweetened", ["cocoa powder", "cocoa"]),
+  food("Molasses", ["molasses", "black treacle"]),
+  food("Syrups, maple", ["maple syrup"]),
+  food("Vinegar, balsamic", ["balsamic vinegar"]),
+  approx("Vinegar, red wine", ["sherry vinegar"]),
+  food("Lard", ["lard"]),
+  food(
+    "Shortening, household, soybean (partially hydrogenated)-cottonseed (partially hydrogenated)",
+    ["shortening"]
+  ),
+  approx(
+    "Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 80 proof",
+    ["brandy"]
+  ),
+  food("Soup, stock, fish, home-prepared", ["fish stock"]),
+  food(
+    'Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8" fat, all grades, raw',
+    ["sirloin steak"]
+  ),
+  food(
+    'Beef, brisket, whole, separable lean and fat, trimmed to 1/8" fat, all grades, raw',
+    ["beef brisket", "brisket"]
+  ),
+  food("Chicken, broilers or fryers, leg, meat and skin, raw", [
+    "chicken legs",
+    "chicken leg",
+  ]),
+  food(
+    'Lamb, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/4" fat, choice, raw',
+    ["lamb leg", "leg of lamb"]
+  ),
 ]
