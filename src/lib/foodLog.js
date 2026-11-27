@@ -30,12 +30,12 @@ export const mealForHour = hour =>
   hour < 11
     ? "breakfast"
     : hour < 15
-    ? "lunch"
-    : hour < 17
-    ? "snack"
-    : hour < 22
-    ? "dinner"
-    : "snack"
+      ? "lunch"
+      : hour < 17
+        ? "snack"
+        : hour < 22
+          ? "dinner"
+          : "snack"
 
 const NUMBERS = ["kcal", "protein", "carbs", "fat"]
 const isEntry = e =>
