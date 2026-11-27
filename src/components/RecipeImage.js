@@ -11,7 +11,7 @@ const RecipeImage = ({ src, alt, sizes, className = "", eager = false }) => (
     width="700"
     height="700"
     loading={eager ? "eager" : "lazy"}
-    fetchpriority={eager ? "high" : undefined}
+    fetchPriority={eager ? "high" : undefined}
     decoding="async"
     className={`bg-line object-cover ${className}`}
   />
