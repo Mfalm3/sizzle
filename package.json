@@ -13,7 +13,6 @@
     "gatsby-plugin-preload-fonts": "^4.14.0",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-source-filesystem": "^5.14.0",
-    "gatsby-transformer-json": "^5.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
     "lodash": "^4.17.21",
     "motion": "^12.16.0",
@@ -37,7 +36,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "preload-fonts": "gatsby-preload-fonts"
+    "test": "node --test src/lib/*.test.mjs",
+    "preload-fonts": "gatsby-preload-fonts",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   }
 }

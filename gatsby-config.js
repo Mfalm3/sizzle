@@ -1,20 +1,18 @@
 /**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
  * @type {import('gatsby').GatsbyConfig}
  */
-const path = require('path');
+const path = require("path")
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Sizzle`,
+    description: `Hundreds of home recipes from around the world, with ingredient scaling, cooking timers and a print-ready method.`,
+    author: `Mfalm3`,
+    // Set to a provider's form endpoint (Buttondown, Mailchimp, ConvertKit...) to show the newsletter form.
+    newsletterAction: ``,
+    social: [`https://github.com/mfalm3`],
+    // Slug of the dish plated in the home page hero. Leave empty to show the latest update.
+    featuredRecipe: `jamaican-curry-goat`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -30,35 +28,22 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Sizzle`,
+        short_name: `Sizzle`,
         start_url: `/`,
-        background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        background_color: `#F4EEE2`,
+        theme_color: `#2F4B33`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`,
       },
     },
     `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `quicksand\:300,400,400i,700`, 
-          `nunito\:300,400,400i,700` 
-        ],
-        display: 'swap'
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: path.resolve(__dirname, `src`, `_data`),
+        fonts: [`young serif\:400`, `figtree\:400,500,600,700`],
+        display: "swap",
       },
     },
-    `gatsby-transformer-json`,
   ],
 }
