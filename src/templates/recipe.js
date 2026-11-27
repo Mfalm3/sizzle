@@ -67,6 +67,11 @@ const RecipePage = ({ data, location }) => {
               text={recipe.name}
               className="mt-4 text-display-lg"
             />
+            {recipe.contributor && (
+              <p className="mt-3 text-muted">
+                Shared by {recipe.contributor}, a Sizzle cook
+              </p>
+            )}
 
             <dl
               ref={reveal}
@@ -291,6 +296,7 @@ export const query = graphql`
       }
       youtube
       source
+      contributor
       updatedAt(formatString: "D MMMM YYYY")
     }
     related: allRecipe(

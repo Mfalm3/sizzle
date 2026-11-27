@@ -4,6 +4,7 @@ import { SocialIcon } from "react-social-icons/component"
 // The /component build ships no icons; register each network listed in siteMetadata.social.
 import "react-social-icons/github"
 import { Logo } from "./header"
+import { CONTRIBUTIONS_ENABLED } from "../lib/supabase"
 import SplitText from "./motion/SplitText"
 
 const FooterLink = ({ to, children }) => (
@@ -82,6 +83,11 @@ const Footer = () => {
               <li>
                 <FooterLink to="/saved">Saved recipes</FooterLink>
               </li>
+              {CONTRIBUTIONS_ENABLED && (
+                <li>
+                  <FooterLink to="/contribute/">Share a recipe</FooterLink>
+                </li>
+              )}
               <li>
                 <FooterLink to="/about">About {title}</FooterLink>
               </li>

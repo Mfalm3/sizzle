@@ -10,7 +10,7 @@ Sizzle: a Gatsby 5 + React 18 recipe site styled with Tailwind 3 and animated wi
 
 - `npm run develop`: dev server at http://localhost:8000 (GraphiQL at `/___graphql`)
 - `npm run build` / `npm run serve`: production build into `public/`, served on :9000
-- `npm test`: Node's built-in runner over `src/lib/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
+- `npm test`: Node's built-in runner over `src/**/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
 - `npm run clean`: clear `.cache/` and `public/`
 - `npm run format`: Prettier (`semi: false`, `arrowParens: "avoid"`)
 - `npm run format:check`: the same check CI runs
@@ -51,6 +51,8 @@ TheMealDB has no prep/cook times, servings, difficulty, ratings or nutrition. Do
 - Gatsby inlines CSS into each page's HTML and may skip re-rendering HTML when only CSS changed, leaving stale styles in `public/`. After CSS-only edits, run `npm run clean` before `npm run build`.
 - The home hero dish is `siteMetadata.featuredRecipe` (a recipe slug), passed to the page query as context in `onCreatePage`; it falls back to the latest update when empty or unknown.
 - `data-noprint` hides elements in print; the recipe page is designed to print as ingredients followed by method.
+- **Community recipes (Supabase):** the schema, row level security, status workflow and storage policies are all in `supabase/migrations/0001_user_recipes.sql`, which is the security boundary: the browser uses the publishable key (`GATSBY_SUPABASE_URL`, `GATSBY_SUPABASE_PUBLISHABLE_KEY`) and every status change goes through the `change_recipe_status` database function. Test policy changes with `supabase/tests/run.sh` (podman or docker). `/login` (magic link), `/contribute` and `/contribute/edit?id=` are client-side shells; `/admin/moderation` is the moderator queue. Publishing runs in `src/api/recipes/publish.js` (needs `SUPABASE_SECRET_KEY` to copy the photo from the private `recipe-uploads` bucket to the public `recipe-images` one, and `NETLIFY_BUILD_HOOK_URL` to rebuild). `sourceNodes` adds rows of the `published_recipes` view as `Recipe` nodes (`recipeId` `community-<uuid>`, with `contributor`) and fails the build if Supabase can't be reached.
+- In Gatsby Functions, read env vars through `globalThis.process.env`: webpack replaces a bare `process.env` with `{}` at build time.
 - `/admin` is a read-only content overview with its own chrome (no `Layout`).
 - Newsletter form and footer social icons are config-driven via `siteMetadata.newsletterAction` / `siteMetadata.social` in `gatsby-config.js`; the newsletter section is hidden while `newsletterAction` is empty. `react-social-icons/component` needs each network registered by import (see `footer.js`).
 

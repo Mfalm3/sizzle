@@ -113,4 +113,56 @@ const normalizeCategory = (category, recipeCount) => ({
   recipeCount,
 })
 
-module.exports = { normalizeMeal, normalizeCategory, splitMethod }
+// A published community recipe (a row of the published_recipes view in Supabase) in the same
+// shape as a TheMealDB recipe. Unknown categories fall back to Miscellaneous, so every recipe
+// has a category page.
+const normalizeCommunityRecipe = (row, { supabaseUrl, categories }) => {
+  const strings = list =>
+    (Array.isArray(list) ? list : []).filter(
+      v => typeof v === "string" && v.trim()
+    )
+  const ingredients = (Array.isArray(row.ingredients) ? row.ingredients : [])
+    .filter(i => i && typeof i.name === "string" && i.name.trim())
+    .map(i => ({
+      name: i.name.trim(),
+      measure: typeof i.measure === "string" ? i.measure.trim() : "",
+    }))
+  const method = (Array.isArray(row.method) ? row.method : [])
+    .map(section => ({
+      title: typeof section?.title === "string" ? section.title : null,
+      steps: strings(section?.steps).map(s => s.trim()),
+    }))
+    .filter(section => section.steps.length)
+  const category = categories.includes(row.category)
+    ? row.category
+    : "Miscellaneous"
+  return {
+    recipeId: `community-${row.id}`,
+    slug: kebabCase(row.title),
+    name: row.title.trim(),
+    category,
+    categorySlug: kebabCase(category),
+    cuisine: row.cuisine?.trim() || null,
+    tags: [],
+    image: `${supabaseUrl}/storage/v1/object/public/recipe-images/${row.image_path
+      .split("/")
+      .map(encodeURIComponent)
+      .join("/")}`,
+    method,
+    ingredients,
+    ingredientNames: ingredients.map(i => i.name),
+    ingredientCount: ingredients.length,
+    stepCount: method.reduce((n, g) => n + g.steps.length, 0),
+    youtube: null,
+    source: null,
+    updatedAt: row.published_at || null,
+    contributor: row.contributor || null,
+  }
+}
+
+module.exports = {
+  normalizeMeal,
+  normalizeCategory,
+  normalizeCommunityRecipe,
+  splitMethod,
+}
