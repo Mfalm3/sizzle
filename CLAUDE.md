@@ -10,7 +10,7 @@ Sizzle: a Gatsby 5 + React 18 recipe site styled with Tailwind 3 and animated wi
 
 - `npm run develop`: dev server at http://localhost:8000 (GraphiQL at `/___graphql`)
 - `npm run build` / `npm run serve`: production build into `public/`, served on :9000
-- `npm test`: Node's built-in runner over `src/lib/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
+- `npm test`: Node's built-in runner over `src/**/*.test.mjs` (no Jest). Run one test with `node --test --test-name-pattern="scales measures" src/lib/lib.test.mjs`
 - `npm run clean`: clear `.cache/` and `public/`
 - `npm run format`: Prettier (`semi: false`, `arrowParens: "avoid"`)
 - `npm run format:check`: the same check CI runs
@@ -51,6 +51,7 @@ TheMealDB has no prep/cook times, servings, difficulty, ratings or nutrition. Do
 - Gatsby inlines CSS into each page's HTML and may skip re-rendering HTML when only CSS changed, leaving stale styles in `public/`. After CSS-only edits, run `npm run clean` before `npm run build`.
 - The home hero dish is `siteMetadata.featuredRecipe` (a recipe slug), passed to the page query as context in `onCreatePage`; it falls back to the latest update when empty or unknown.
 - `data-noprint` hides elements in print; the recipe page is designed to print as ingredients followed by method.
+- **Newsletter:** `NewsletterSignup` (home section and footer, hidden unless `GATSBY_NEWSLETTER_ENABLED=true` at build) posts to the Gatsby Function `src/api/newsletter/subscribe.js` (deployed as a Netlify Function). It calls the provider-agnostic service in `src/services/newsletter/` (validation, honeypot and timing spam checks, provider adapters; Buttondown today, key in `BUTTONDOWN_API_KEY`). Buttondown handles double opt-in and unsubscribe links. Replies never reveal whether an address is already subscribed. Env vars are documented in `.env.example`. Keep `/privacy` in step with anything new that stores data or sends it to a third party.
 - `/admin` is a read-only content overview with its own chrome (no `Layout`).
 - Newsletter form and footer social icons are config-driven via `siteMetadata.newsletterAction` / `siteMetadata.social` in `gatsby-config.js`; the newsletter section is hidden while `newsletterAction` is empty. `react-social-icons/component` needs each network registered by import (see `footer.js`).
 

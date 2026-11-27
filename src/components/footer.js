@@ -5,6 +5,7 @@ import { SocialIcon } from "react-social-icons/component"
 import "react-social-icons/github"
 import { Logo } from "./header"
 import SplitText from "./motion/SplitText"
+import NewsletterSignup from "./NewsletterSignup"
 
 const FooterLink = ({ to, children }) => (
   <Link className="nav-link hover:text-surface" to={to}>
@@ -37,7 +38,7 @@ const Footer = () => {
       className="mt-24 overflow-hidden bg-herb-dark text-surface/80"
     >
       <div className="page grid gap-12 py-16 md:grid-cols-[1.2fr_2fr]">
-        <div className="max-w-xs space-y-4">
+        <div className="max-w-sm space-y-4">
           <div className="text-surface [&_circle:nth-child(1)]:fill-surface/10">
             <Logo siteTitle={title} />
           </div>
@@ -58,6 +59,9 @@ const Footer = () => {
               ))}
             </div>
           )}
+          <div className="pt-4">
+            <NewsletterSignup variant="compact" />
+          </div>
         </div>
 
         <div className="grid gap-10 sm:grid-cols-3">
@@ -126,14 +130,22 @@ const Footer = () => {
             </a>
             .
           </p>
-          <p>
-            Made by{" "}
-            <a
+          <p className="flex gap-4">
+            <Link
               className="underline underline-offset-4 hover:text-surface"
-              href="https://github.com/mfalm3"
+              to="/privacy"
             >
-              Mfalm3
-            </a>
+              Privacy
+            </Link>
+            <span>
+              Made by{" "}
+              <a
+                className="underline underline-offset-4 hover:text-surface"
+                href="https://github.com/mfalm3"
+              >
+                Mfalm3
+              </a>
+            </span>
           </p>
         </div>
       </div>

@@ -70,3 +70,6 @@ yarn-error.log
 
 # Playwright MCP screenshots
 .playwright-mcp/
+
+# Template for environment variables (no secrets)
+!.env.example
