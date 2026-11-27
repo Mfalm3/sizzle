@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or PR cancels the run it replaces.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Puppeteer (pulled in by gatsby-plugin-preload-fonts) downloads Chromium on install. The build
+  # never uses it, only the manual `npm run preload-fonts` script does, and the download is slow and flaky.
+  PUPPETEER_SKIP_DOWNLOAD: "true"
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+  GATSBY_TELEMETRY_DISABLED: "1"
+
+jobs:
+  checks:
+    name: Format, tests, audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Format
+        run: npm run format:check
+
+      - name: Unit tests
+        run: npm test
+
+      # Blocks on critical advisories. The remaining high ones all come through Gatsby 5 itself
+      # and npm can only "fix" them by downgrading to Gatsby 1/2-era packages; Dependabot opens
+      # update PRs as fixes land upstream.
+      - name: Security audit
+        run: npm audit --omit=dev --audit-level=critical
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # The recipe data in src/_data is a cache of TheMealDB. If any of it is missing, the build
+      # fetches it from the API, which makes builds slow, flaky and non-reproducible. Fail loudly instead.
+      - name: Recipe data is committed
+        run: |
+          if [ -n "$(git status --porcelain -- src/_data)" ]; then
+            echo "::error::The build fetched recipe data that isn't committed. Commit src/_data."
+            git status --short -- src/_data
+            exit 1
+          fi
