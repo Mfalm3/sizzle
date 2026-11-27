@@ -52,11 +52,11 @@ const score = (recipe, terms) => {
     const s = recipe.name.toLowerCase().includes(term)
       ? 3
       : recipe.ingredientNames.some(i => i.toLowerCase().includes(term))
-      ? 2
-      : recipe.tags.some(t => t.toLowerCase().includes(term)) ||
-        (recipe.cuisine || "").toLowerCase().includes(term)
-      ? 1
-      : 0
+        ? 2
+        : recipe.tags.some(t => t.toLowerCase().includes(term)) ||
+            (recipe.cuisine || "").toLowerCase().includes(term)
+          ? 1
+          : 0
     if (!s) return 0
     total += s
   }
