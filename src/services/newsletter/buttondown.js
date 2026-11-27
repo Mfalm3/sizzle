@@ -33,7 +33,9 @@ export const createButtondown = ({ apiKey, apiVersion, fetch }) => ({
 
     if (response.ok) return { status: "pending" }
     if (response.status === 429) return { status: "rate_limited" }
-    if (response.status >= 500) return { status: "unavailable" }
+    // A bad or revoked key is our problem, not the visitor's address.
+    if (response.status >= 500 || response.status === 401)
+      return { status: "unavailable" }
     // An existing address is a 400; the error body isn't documented, so match its wording and
     // treat anything else as a rejection rather than assume success.
     const detail = (await response.text().catch(() => "")).slice(0, 300)

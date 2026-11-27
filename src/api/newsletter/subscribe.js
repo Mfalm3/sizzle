@@ -20,7 +20,9 @@ export default async function handler(req, res) {
     body: req.body || {},
     ip,
     now: Date.now(),
-    env: process.env,
+    // Not `process.env`: Gatsby's bundler replaces that with the build-time values (`{}` here),
+    // and the key must be read when the function runs.
+    env: globalThis.process.env,
     fetch,
   })
   return res.status(status).json(json)

@@ -138,6 +138,7 @@ test("reports provider rejections, rate limits and outages clearly", async () =>
     "email"
   )
   assert.equal((await run(403, "blocked")).status, 400)
+  assert.equal((await run(401, "bad key")).status, 502)
   assert.equal((await run(429)).status, 429)
   assert.equal((await run(503)).status, 502)
   const offline = await handleSubscribe({
