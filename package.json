@@ -39,6 +39,7 @@
     "clean": "gatsby clean",
     "test": "node --test \"src/**/*.test.mjs\"",
     "preload-fonts": "gatsby-preload-fonts",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "nutrition:build": "node utils/nutrition/build.js"
   }
 }
