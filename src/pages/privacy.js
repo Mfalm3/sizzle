@@ -54,6 +54,23 @@ const PrivacyPage = () => (
           </p>
         </Section>
 
+        <Section title="Accounts and shared recipes">
+          <p>
+            If you sign in to share recipes, your email address is stored by
+            Supabase, the service that runs Sizzle's accounts and database. It
+            is only used to send you sign-in links and is never shown on the
+            site. Your recipes, their photos and the name you choose to show are
+            stored there too.
+          </p>
+          <p>
+            Drafts and recipes waiting for review are visible only to you and
+            Sizzle's moderators. Once a moderator publishes a recipe, it appears
+            on the site with your chosen name. You can delete drafts and recipes
+            that need changes yourself; to remove a published recipe or your
+            account, open an issue on GitHub.
+          </p>
+        </Section>
+
         <Section title="Services the site loads from">
           <p>
             The site is hosted on Netlify. Recipe photos load from TheMealDB,

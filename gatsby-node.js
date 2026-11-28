@@ -3,7 +3,11 @@
  * then creates a page per recipe and per category.
  */
 const fetchAndCache = require("./utils/fetchAndCache")
-const { normalizeMeal, normalizeCategory } = require("./utils/recipes")
+const {
+  normalizeMeal,
+  normalizeCategory,
+  normalizeCommunityRecipe,
+} = require("./utils/recipes")
 const { recipeNutrition } = require("./utils/nutrition/calc")
 const nutritionData = require("./src/_data/nutrition.json")
 
@@ -38,6 +42,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       youtube: String
       source: String
       updatedAt: Date @dateformat
+      contributor: String
       # Estimated from USDA data at build time; see utils/nutrition/calc.js
       nutrition: JSON!
     }
@@ -56,7 +61,26 @@ exports.createSchemaCustomization = ({ actions }) => {
   `)
 }
 
+// Published community recipes from Supabase, when the project is configured. Fails the build
+// rather than quietly dropping them if Supabase can't be reached (the live site stays as it was).
+const fetchCommunityRecipes = async reporter => {
+  const url = process.env.GATSBY_SUPABASE_URL
+  const key = process.env.GATSBY_SUPABASE_PUBLISHABLE_KEY
+  if (!url || !key) return []
+  try {
+    const response = await fetch(`${url}/rest/v1/published_recipes?select=*`, {
+      headers: { apikey: key },
+    })
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    return await response.json()
+  } catch (error) {
+    reporter.panicOnBuild(`Could not load community recipes: ${error.message}`)
+    return []
+  }
+}
+
 exports.sourceNodes = async ({
+  reporter,
   actions,
   createNodeId,
   createContentDigest,
@@ -82,10 +106,18 @@ exports.sourceNodes = async ({
   const recipes = letters
     .flatMap(l => l.meals || [])
     .map(m => normalizeMeal(m, areaByCountry))
-    .map(r => ({
-      ...r,
-      nutrition: recipeNutrition(r.ingredients, nutritionData),
-    }))
+  const categoryNames = categories.categories.map(c => c.strCategory)
+  for (const row of await fetchCommunityRecipes(reporter)) {
+    recipes.push(
+      normalizeCommunityRecipe(row, {
+        supabaseUrl: process.env.GATSBY_SUPABASE_URL,
+        categories: categoryNames,
+      })
+    )
+  }
+  // Every recipe, TheMealDB's and the community's, gets a nutrition estimate.
+  for (const recipe of recipes)
+    recipe.nutrition = recipeNutrition(recipe.ingredients, nutritionData)
 
   const seen = new Set()
   recipes.forEach(recipe => {

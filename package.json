@@ -6,6 +6,7 @@
   "author": "Joe Waithaka <joe@jkrafts.com>",
   "dependencies": {
     "@anthropic-ai/sdk": "^1.14.0",
+    "@supabase/supabase-js": "^2.119.2",
     "autoprefixer": "^10.7.0",
     "gatsby": "^5.4.14",
     "gatsby-plugin-google-fonts": "^1.0.1",

@@ -166,3 +166,51 @@ test("restores well-formed timers from storage and drops the rest", () => {
 test("links a timer to its step on the recipe page", () => {
   assert.equal(stepHref(timer), "/recipes/beef-stew/#step-2")
 })
+
+const { normalizeCommunityRecipe } = createRequire(import.meta.url)(
+  "../../utils/recipes.js"
+)
+
+test("turns a published community recipe into the site's recipe shape", () => {
+  const recipe = normalizeCommunityRecipe(
+    {
+      id: "6f1c2a4e-8b3d-4c5e-9f60-718293a4b5c6",
+      title: " Gran's Pierogi ",
+      category: "Dumplings",
+      cuisine: "Polish",
+      ingredients: [
+        { name: "flour", measure: "300g" },
+        { name: " ", measure: "x" },
+        { name: "potatoes" },
+        "junk",
+      ],
+      method: [
+        { title: null, steps: ["Make the dough", "", 4] },
+        { title: "Empty", steps: [] },
+      ],
+      image_path: "a1/photo one.jpg",
+      published_at: "2026-11-27T10:00:00Z",
+      contributor: "Ada",
+    },
+    {
+      supabaseUrl: "https://x.supabase.co",
+      categories: ["Beef", "Miscellaneous"],
+    }
+  )
+  assert.equal(
+    recipe.recipeId,
+    "community-6f1c2a4e-8b3d-4c5e-9f60-718293a4b5c6"
+  )
+  assert.equal(recipe.slug, "grans-pierogi")
+  assert.equal(recipe.name, "Gran's Pierogi")
+  assert.equal(recipe.category, "Miscellaneous")
+  assert.equal(recipe.categorySlug, "miscellaneous")
+  assert.deepEqual(recipe.ingredientNames, ["flour", "potatoes"])
+  assert.deepEqual(recipe.method, [{ title: null, steps: ["Make the dough"] }])
+  assert.equal(recipe.stepCount, 1)
+  assert.equal(
+    recipe.image,
+    "https://x.supabase.co/storage/v1/object/public/recipe-images/a1/photo%20one.jpg"
+  )
+  assert.equal(recipe.contributor, "Ada")
+})
