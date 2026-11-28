@@ -11,6 +11,7 @@ import SectionHeading from "../components/SectionHeading"
 import Ingredients from "../components/recipe/Ingredients"
 import Method from "../components/recipe/Method"
 import ShareActions from "../components/recipe/ShareActions"
+import NutritionPanel from "../components/recipe/NutritionPanel"
 import { useTimers } from "../components/recipe/useTimers"
 import SplitText from "../components/motion/SplitText"
 import { ScrollSpin } from "../components/motion/ScrollMotion"
@@ -67,6 +68,11 @@ const RecipePage = ({ data, location }) => {
               text={recipe.name}
               className="mt-4 text-display-lg"
             />
+            {recipe.contributor && (
+              <p className="mt-3 text-muted">
+                Shared by {recipe.contributor}, a Sizzle cook
+              </p>
+            )}
 
             <dl
               ref={reveal}
@@ -208,6 +214,10 @@ const RecipePage = ({ data, location }) => {
         </div>
       </article>
 
+      <div id="nutrition" className="page mt-16 scroll-mt-24">
+        <NutritionPanel recipe={recipe} />
+      </div>
+
       {related.nodes.length > 0 && (
         <section
           aria-labelledby="related-title"
@@ -291,7 +301,9 @@ export const query = graphql`
       }
       youtube
       source
+      contributor
       updatedAt(formatString: "D MMMM YYYY")
+      nutrition
     }
     related: allRecipe(
       filter: { categorySlug: { eq: $categorySlug }, id: { ne: $id } }

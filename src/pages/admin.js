@@ -3,10 +3,11 @@ import { Link, graphql } from "gatsby"
 
 import Seo from "../components/seo"
 import { Logo } from "../components/header"
+import { CONTRIBUTIONS_ENABLED } from "../lib/supabase"
 
 const pct = (n, total) => `${Math.round((n / total) * 100)}%`
 
-// Read-only content health view. Editing, moderation and user management need the backend phase.
+// Read-only content health view. Community recipes are moderated at /admin/moderation.
 const AdminPage = ({ data }) => {
   const recipes = data.allRecipe.nodes
   const total = recipes.length
@@ -41,9 +42,19 @@ const AdminPage = ({ data }) => {
               Admin
             </span>
           </div>
-          <Link to="/" className="text-sm text-surface/80 hover:text-surface">
-            View site
-          </Link>
+          <nav className="flex items-center gap-5 text-sm">
+            {CONTRIBUTIONS_ENABLED && (
+              <Link
+                to="/admin/moderation/"
+                className="text-surface/80 hover:text-surface"
+              >
+                Moderation
+              </Link>
+            )}
+            <Link to="/" className="text-surface/80 hover:text-surface">
+              View site
+            </Link>
+          </nav>
         </div>
       </header>
 
@@ -58,8 +69,18 @@ const AdminPage = ({ data }) => {
             </p>
           </div>
           <p className="rounded-lg border border-saffron bg-saffron-soft px-3 py-2 text-sm">
-            Read-only. Editing recipes and managing users arrive with the
-            backend.
+            Read-only.{" "}
+            {CONTRIBUTIONS_ENABLED ? (
+              <>
+                Community recipes are reviewed in{" "}
+                <Link to="/admin/moderation/" className="link font-normal">
+                  Moderation
+                </Link>
+                .
+              </>
+            ) : (
+              "Community recipes appear once Supabase is set up."
+            )}
           </p>
         </div>
 

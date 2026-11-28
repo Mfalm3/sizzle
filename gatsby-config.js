@@ -8,8 +8,6 @@ module.exports = {
     title: `Sizzle`,
     description: `Hundreds of home recipes from around the world, with ingredient scaling, cooking timers and a print-ready method.`,
     author: `Mfalm3`,
-    // Set to a provider's form endpoint (Buttondown, Mailchimp, ConvertKit...) to show the newsletter form.
-    newsletterAction: ``,
     social: [`https://github.com/mfalm3`],
     // Slug of the dish plated in the home page hero. Leave empty to show the latest update.
     featuredRecipe: `jamaican-curry-goat`,

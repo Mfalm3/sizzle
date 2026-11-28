@@ -12,6 +12,7 @@ const NAV = [
   { to: "/recipes", label: "Recipes" },
   { to: "/#categories", label: "Categories" },
   { to: "/#cuisines", label: "Cuisines" },
+  { to: "/pantry", label: "Pantry" },
   { to: "/about", label: "About" },
 ]
 

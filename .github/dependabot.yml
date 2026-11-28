@@ -2,6 +2,8 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: /
+    # Work happens on develop; PRs against main would update code that hasn't been merged up yet.
+    target-branch: develop
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
@@ -18,5 +20,6 @@ updates:
 
   - package-ecosystem: github-actions
     directory: /
+    target-branch: develop
     schedule:
       interval: monthly

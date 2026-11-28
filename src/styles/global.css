@@ -64,6 +64,14 @@
   .input {
     @apply min-h-[2.75rem] w-full rounded-full border border-line bg-surface px-5 text-base text-ink placeholder:text-muted/80 focus:border-herb focus-visible:ring-offset-0;
   }
+  /* A pill clips the corners of multi-line text, so text areas get a softer radius. */
+  textarea.input {
+    @apply min-h-[6rem] resize-y rounded-2xl py-3 leading-relaxed;
+  }
+  /* Chrome's arrow on fields with suggestions (list=); the suggestions still appear as you type. */
+  .input::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
   .select {
     @apply input appearance-none bg-[length:12px] bg-[right_1.1rem_center] bg-no-repeat pr-10;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236B6356' stroke-width='1.6'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
@@ -91,6 +99,10 @@
 }
 
 @layer utilities {
+  /* Chrome adds a solid ▼ to inputs with a <datalist>; suggestions still open as you type */
+  .ingredient-field::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
   /* Compact controls grow to the 44px touch minimum on touch screens; mouse layouts keep their size */
   @media (pointer: coarse) {
     .touch-target {
@@ -138,7 +150,9 @@
 .nav-link {
   background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0%
     1px;
-  transition: background-size 0.35s var(--ease-out-expo), color 0.2s;
+  transition:
+    background-size 0.35s var(--ease-out-expo),
+    color 0.2s;
 }
 .nav-link:hover,
 .nav-link[aria-current="page"] {
@@ -154,7 +168,9 @@
     no-repeat 0 55% / 0% 2px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  transition: background-size 0.45s var(--ease-out-expo), color 0.3s;
+  transition:
+    background-size 0.45s var(--ease-out-expo),
+    color 0.3s;
 }
 .strike-on {
   background-size: 100% 2px;
@@ -163,8 +179,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal="up"] {
-    transition: opacity 0.9s var(--ease-out-expo)
-        calc(var(--i, 0) * var(--stagger)),
+    transition:
+      opacity 0.9s var(--ease-out-expo) calc(var(--i, 0) * var(--stagger)),
       transform 1.1s var(--ease-out-expo) calc(var(--i, 0) * var(--stagger));
   }
   .js [data-reveal="up"]:not([data-inview]) {
@@ -189,7 +205,8 @@
       calc(var(--i, 0) * var(--stagger));
   }
   [data-reveal="card"] .card-text {
-    transition: opacity 0.8s ease-out calc(var(--i, 0) * var(--stagger) + 250ms),
+    transition:
+      opacity 0.8s ease-out calc(var(--i, 0) * var(--stagger) + 250ms),
       transform 0.9s var(--ease-out-expo)
         calc(var(--i, 0) * var(--stagger) + 250ms);
   }
@@ -222,7 +239,8 @@
     transform: rotate(-80deg) scale(0.82);
   }
   [data-reveal="plate"] {
-    transition: opacity 0.8s ease-out calc(var(--i, 0) * var(--stagger)),
+    transition:
+      opacity 0.8s ease-out calc(var(--i, 0) * var(--stagger)),
       transform 1.3s var(--ease-out-expo) calc(var(--i, 0) * var(--stagger));
   }
   .js [data-reveal="plate"]:not([data-inview]) {
@@ -291,7 +309,8 @@
 @media (prefers-reduced-motion: no-preference) {
   .step[data-highlight]::before {
     background: theme("colors.saffron.soft");
-    animation: step-glow 3.2s var(--ease-out-expo) both,
+    animation:
+      step-glow 3.2s var(--ease-out-expo) both,
       step-ring 1.1s ease-out 0.15s 2;
   }
   .step[data-highlight] .step-num {
@@ -446,8 +465,11 @@
     .select::picker(select) {
       opacity: 0;
       translate: 0 -0.5rem;
-      transition: opacity 0.18s ease-out, translate 0.3s var(--ease-out-expo),
-        overlay 0.3s allow-discrete, display 0.3s allow-discrete;
+      transition:
+        opacity 0.18s ease-out,
+        translate 0.3s var(--ease-out-expo),
+        overlay 0.3s allow-discrete,
+        display 0.3s allow-discrete;
     }
     .select:open::picker(select) {
       opacity: 1;
