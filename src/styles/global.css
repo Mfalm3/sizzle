@@ -91,6 +91,10 @@
 }
 
 @layer utilities {
+  /* Chrome adds a solid ▼ to inputs with a <datalist>; suggestions still open as you type */
+  .ingredient-field::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
   /* Compact controls grow to the 44px touch minimum on touch screens; mouse layouts keep their size */
   @media (pointer: coarse) {
     .touch-target {

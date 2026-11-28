@@ -18,7 +18,7 @@ const PrivacyPage = () => (
   <Layout>
     <article className="page max-w-prose pb-8 pt-8 lg:pt-12">
       <SplitText as="h1" text="Privacy" className="text-display-lg" />
-      <p className="mt-3 text-muted">Last updated 27 November 2026</p>
+      <p className="mt-3 text-muted">Last updated 28 November 2026</p>
 
       <div className="text-lg leading-relaxed">
         <Section title="What stays on your device">
@@ -41,6 +41,16 @@ const PrivacyPage = () => (
           <p>
             Every newsletter includes a link to unsubscribe. Subscriber
             addresses are never shown on this site or shared with anyone else.
+          </p>
+        </Section>
+
+        <Section title="Reading ingredients from a photo">
+          <p>
+            If you use photo scanning on the "Cook with what you have" page, the
+            photo is shrunk and stripped of its location data in your browser,
+            then sent to Anthropic's Claude to read the ingredients. Sizzle
+            doesn't keep the photo. Anthropic handles it under its commercial
+            terms and doesn't use it to train its models.
           </p>
         </Section>
 

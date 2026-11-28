@@ -84,7 +84,13 @@ const Footer = () => {
                 </FooterLink>
               </li>
               <li>
+                <FooterLink to="/pantry">Cook with what you have</FooterLink>
+              </li>
+              <li>
                 <FooterLink to="/saved">Saved recipes</FooterLink>
+              </li>
+              <li>
+                <FooterLink to="/food-log">Food log</FooterLink>
               </li>
               <li>
                 <FooterLink to="/about">About {title}</FooterLink>

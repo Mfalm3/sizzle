@@ -32,6 +32,13 @@ const PATHS = {
   filter: <path d="M4 7h10M18 7h2M4 17h4M12 17h8M14 4.5v5M8 14.5v5" />,
   pause: <path d="M9 5v14M15 5v14" />,
   arrow: <path d="M5 12h14m-5-5 5 5-5 5" />,
+  camera: (
+    <>
+      <path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.5-2h5.6l1.5 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-9Z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </>
+  ),
+  list: <path d="M9 7h11M9 12h11M9 17h11M4.5 7h.01M4.5 12h.01M4.5 17h.01" />,
 }
 
 const Icon = ({ name, className = "h-5 w-5", filled = false }) => (
