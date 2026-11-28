@@ -1,5 +1,5 @@
 import React, { useDeferredValue, useEffect, useMemo, useState } from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { AnimatePresence, motion } from "motion/react"
 
 import Layout from "../components/layout"
@@ -112,6 +112,12 @@ const RecipesPage = ({ data, location }) => {
             className="input min-h-[3.5rem] pl-12 text-lg"
           />
         </form>
+        <p className="mt-3 text-sm text-muted">
+          Already have some ingredients?{" "}
+          <Link to="/pantry" className="link">
+            See what you can cook with them
+          </Link>
+        </p>
       </header>
 
       <nav aria-label="Categories" className="page">

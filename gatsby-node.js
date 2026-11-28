@@ -8,6 +8,8 @@ const {
   normalizeCategory,
   normalizeCommunityRecipe,
 } = require("./utils/recipes")
+const { recipeNutrition } = require("./utils/nutrition/calc")
+const nutritionData = require("./src/_data/nutrition.json")
 
 const API = "https://www.themealdb.com/api/json/v1/1"
 // The free API has no "list everything" call, so we pull every first letter.
@@ -41,6 +43,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       source: String
       updatedAt: Date @dateformat
       contributor: String
+      # Estimated from USDA data at build time; see utils/nutrition/calc.js
+      nutrition: JSON!
     }
     type Cuisine implements Node @dontInfer {
       name: String!
@@ -111,6 +115,9 @@ exports.sourceNodes = async ({
       })
     )
   }
+  // Every recipe, TheMealDB's and the community's, gets a nutrition estimate.
+  for (const recipe of recipes)
+    recipe.nutrition = recipeNutrition(recipe.ingredients, nutritionData)
 
   const seen = new Set()
   recipes.forEach(recipe => {

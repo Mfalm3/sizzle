@@ -71,6 +71,8 @@ yarn-error.log
 # Playwright MCP screenshots
 .playwright-mcp/
 
+# Template for environment variables (no secrets)
+!.env.example
 # Agent skills installed locally (Supabase skills etc.)
 .agents/
 .claude/

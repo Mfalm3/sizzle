@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Joe Waithaka <joe@jkrafts.com>",
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
     "@supabase/supabase-js": "^2.119.2",
     "autoprefixer": "^10.7.0",
     "gatsby": "^5.4.14",
@@ -39,6 +40,7 @@
     "clean": "gatsby clean",
     "test": "node --test \"src/**/*.test.mjs\"",
     "preload-fonts": "gatsby-preload-fonts",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "nutrition:build": "node utils/nutrition/build.js"
   }
 }
