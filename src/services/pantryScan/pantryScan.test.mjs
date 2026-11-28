@@ -35,11 +35,11 @@ const fakeClient = response => {
   createMessages.calls = calls
   return createMessages
 }
-const answer = items => ({
+const answer = (items, dish = "") => ({
   stop_reason: "end_turn",
   content: [
     { type: "thinking", thinking: "" },
-    { type: "text", text: JSON.stringify({ items }) },
+    { type: "text", text: JSON.stringify({ items, dish }) },
   ],
 })
 const scan = (createMessages, overrides = {}, ip = "203.0.113.7") =>
@@ -185,4 +185,27 @@ test("caps and tidies the list", () => {
     { name: "salt", confidence: "low" },
   ])
   assert.deepEqual(cleanItems(null), [])
+})
+
+test("names a cooked dish instead of guessing its ingredients, and caches that too", async () => {
+  const client = fakeClient(answer([], " Shakshuka "))
+  const first = await scan(client)
+  assert.deepEqual(first.json, { ok: true, items: [], dish: "Shakshuka" })
+  const again = await scan(client)
+  assert.equal(again.json.dish, "Shakshuka")
+  assert.equal(client.calls.length, 1)
+  // Older or partial replies without the field still work.
+  const plain = await scan(
+    fakeClient({
+      stop_reason: "end_turn",
+      content: [
+        {
+          type: "text",
+          text: '{"items":[{"name":"egg","confidence":"high"}]}',
+        },
+      ],
+    }),
+    { image: jpeg("plain") }
+  )
+  assert.equal(plain.json.dish, "")
 })
