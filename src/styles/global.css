@@ -64,6 +64,14 @@
   .input {
     @apply min-h-[2.75rem] w-full rounded-full border border-line bg-surface px-5 text-base text-ink placeholder:text-muted/80 focus:border-herb focus-visible:ring-offset-0;
   }
+  /* A pill clips the corners of multi-line text, so text areas get a softer radius. */
+  textarea.input {
+    @apply min-h-[6rem] resize-y rounded-2xl py-3 leading-relaxed;
+  }
+  /* Chrome's arrow on fields with suggestions (list=); the suggestions still appear as you type. */
+  .input::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
   .select {
     @apply input appearance-none bg-[length:12px] bg-[right_1.1rem_center] bg-no-repeat pr-10;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236B6356' stroke-width='1.6'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");

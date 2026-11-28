@@ -124,6 +124,7 @@ const Editor = ({ session, categories, cuisines }) => {
 
   const editable = ["draft", "rejected"].includes(form.status)
   const busy = state.status === "saving"
+  const stepCount = toRow(form).method[0].steps.length
   const set = changes => setForm(current => ({ ...current, ...changes }))
   const setIngredient = (index, changes) =>
     set({
@@ -299,7 +300,7 @@ const Editor = ({ session, categories, cuisines }) => {
         />
       </Field>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2 sm:items-end">
         <Field id="category" label="Category">
           <select
             id="category"
@@ -389,8 +390,13 @@ const Editor = ({ session, categories, cuisines }) => {
           value={form.steps}
           rows={8}
           onChange={e => set({ steps: e.target.value })}
+          aria-describedby="steps-count"
           className="input"
         />
+        {/* Long steps wrap, so the count shows where one step ends and the next begins. */}
+        <p id="steps-count" className="mt-1.5 text-sm text-muted">
+          {stepCount} {stepCount === 1 ? "step" : "steps"}
+        </p>
       </Field>
 
       <Field
@@ -411,7 +417,7 @@ const Editor = ({ session, categories, cuisines }) => {
           accept={PHOTO_TYPES.join(",")}
           disabled={busy}
           onChange={e => upload(e.target.files[0])}
-          className="text-sm"
+          className="text-sm text-muted file:mr-4 file:min-h-[2.75rem] file:cursor-pointer file:rounded-full file:border file:border-solid file:border-line file:bg-surface file:px-5 file:font-semibold file:text-ink hover:file:border-herb"
         />
       </Field>
 
