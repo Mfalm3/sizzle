@@ -28,6 +28,7 @@ const EMPTY = {
   have: [],
   exclude: [],
   diet: "",
+  cuisine: "",
   assumeBasics: true,
   sort: "match",
 }
@@ -118,6 +119,11 @@ const PantryPage = ({ data, location }) => {
     }
     return [...byKey.values()].sort((a, b) => b.count - a.count)
   }, [recipes])
+
+  const cuisines = useMemo(
+    () => [...new Set(recipes.map(r => r.cuisine).filter(Boolean))].sort(),
+    [recipes]
+  )
 
   const isKnown = name => {
     const n = normalizeIngredient(name)
@@ -254,6 +260,25 @@ const PantryPage = ({ data, location }) => {
                   </p>
                 )}
               </fieldset>
+              <div>
+                <label
+                  htmlFor="pantry-cuisine"
+                  className="text-sm font-semibold"
+                >
+                  Cuisine
+                </label>
+                <select
+                  id="pantry-cuisine"
+                  value={state.cuisine}
+                  onChange={event => update({ cuisine: event.target.value })}
+                  className="select mt-2"
+                >
+                  <option value="">Any cuisine</option>
+                  {cuisines.map(name => (
+                    <option key={name}>{name}</option>
+                  ))}
+                </select>
+              </div>
               <label className="flex cursor-pointer items-start gap-3 text-sm">
                 <input
                   type="checkbox"
@@ -323,8 +348,8 @@ const PantryPage = ({ data, location }) => {
                 <EmptyPlate className="w-56" />
                 <h2 className="mt-6 text-display-sm">No recipes use those</h2>
                 <p className="mt-2 max-w-sm text-muted">
-                  {state.exclude.length || state.diet
-                    ? "Try fewer exclusions or a different diet"
+                  {state.exclude.length || state.diet || state.cuisine
+                    ? "Try fewer exclusions, or a different diet or cuisine"
                     : "Check the spelling, or add a more common ingredient"}
                 </p>
               </div>

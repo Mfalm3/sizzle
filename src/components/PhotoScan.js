@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useRef, useState } from "react"
+import { Link } from "gatsby"
 import { AnimatePresence, motion } from "motion/react"
 import Icon from "./Icon"
 import { ease } from "../lib/motion"
@@ -132,10 +133,20 @@ const PhotoScan = ({ onAdd, isKnown }) => {
 
     if (!reply.ok)
       return setState({ status: "error", message: reply.message, preview })
+    // Next to a cooked dish, anything listed may just be part of it: the cook opts in.
     setSelected(
-      new Set(reply.items.filter(i => i.confidence !== "low").map(i => i.name))
+      new Set(
+        reply.dish
+          ? []
+          : reply.items.filter(i => i.confidence !== "low").map(i => i.name)
+      )
     )
-    setState({ status: "review", items: reply.items, preview })
+    setState({
+      status: "review",
+      items: reply.items,
+      dish: reply.dish,
+      preview,
+    })
   }
 
   const toggle = name =>
@@ -227,15 +238,35 @@ const PhotoScan = ({ onAdd, isKnown }) => {
                   </div>
                 )}
 
+                {state.status === "review" && state.dish && (
+                  <div className={state.items.length ? "mb-4" : ""}>
+                    <p className="font-semibold">
+                      That looks like a cooked dish: {state.dish}
+                    </p>
+                    <p className="mt-1 text-sm">
+                      Photograph the raw ingredients instead, or{" "}
+                      <Link
+                        to={`/recipes?q=${encodeURIComponent(state.dish)}`}
+                        className="link"
+                      >
+                        find {state.dish} recipes
+                      </Link>
+                    </p>
+                  </div>
+                )}
                 {state.status === "review" && !state.items.length && (
                   <>
-                    <p className="font-semibold">
-                      No ingredients found in that{" "}
-                      {mode === "list" ? "list" : "photo"}
-                    </p>
-                    <p className="mt-1 text-sm text-muted">
-                      Try a closer, brighter photo, or type them above
-                    </p>
+                    {!state.dish && (
+                      <>
+                        <p className="font-semibold">
+                          No ingredients found in that{" "}
+                          {mode === "list" ? "list" : "photo"}
+                        </p>
+                        <p className="mt-1 text-sm text-muted">
+                          Try a closer, brighter photo, or type them above
+                        </p>
+                      </>
+                    )}
                     <button
                       type="button"
                       className="link mt-2 text-sm"
@@ -249,12 +280,14 @@ const PhotoScan = ({ onAdd, isKnown }) => {
                 {state.status === "review" && state.items.length > 0 && (
                   <fieldset>
                     <legend className="font-semibold">
-                      Found {state.items.length}{" "}
+                      {state.dish ? "Also spotted" : "Found"}{" "}
+                      {state.items.length}{" "}
                       {state.items.length === 1 ? "ingredient" : "ingredients"}
                     </legend>
                     <p className="text-sm text-muted">
-                      Untick anything that's wrong. You can edit names after
-                      adding them.
+                      {state.dish
+                        ? "They may just be part of the dish, so tick any you actually have."
+                        : "Untick anything that's wrong. You can edit names after adding them."}
                     </p>
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {state.items.map(item => {

@@ -149,6 +149,7 @@ test("infers diet from ingredient names, conservatively", () => {
 const omelette = {
   recipeId: "1",
   name: "Spinach and Cheese Omelette",
+  cuisine: "French",
   ingredientNames: ["Eggs", "Spinach", "Cheese", "Milk", "Salt", "Pepper"],
   stepCount: 3,
   ingredientCount: 6,
@@ -163,6 +164,7 @@ const stew = {
 const salad = {
   recipeId: "3",
   name: "Tomato Salad",
+  cuisine: "Italian",
   ingredientNames: ["Tomatoes", "Red Onion", "Olive Oil", "Basil"],
   stepCount: 2,
   ingredientCount: 4,
@@ -250,6 +252,7 @@ test("round-trips pantry state through the URL", () => {
     have: ["tomatoes", "eggs"],
     exclude: ["milk"],
     diet: "vegetarian",
+    cuisine: "Middle Eastern",
     assumeBasics: false,
     sort: "missing",
   }
@@ -265,4 +268,18 @@ test("round-trips pantry state through the URL", () => {
     ""
   )
   assert.equal(pantryFromSearch("?diet=keto&sort=fast").diet, "")
+})
+
+test("keeps only the chosen cuisine", () => {
+  const have = ["eggs", "spinach", "tomatoes", "onion"]
+  assert.deepEqual(
+    recommend(recipes, { have, cuisine: "Italian" }).map(r => r.recipe.name),
+    ["Tomato Salad"]
+  )
+  // Recipes without a cuisine never match a cuisine filter.
+  assert.deepEqual(
+    recommend([stew], { have: ["beef"], cuisine: "Italian" }),
+    []
+  )
+  assert.equal(recommend(recipes, { have }).length, 3)
 })

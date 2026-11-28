@@ -7,11 +7,11 @@ import { createHash } from "node:crypto"
 export const MODES = {
   photo: {
     prompt:
-      'List the food ingredients you can see in this photo, such as the contents of a fridge, a cupboard or a kitchen counter. Name each one the way a recipe would (for example "cheddar cheese", "red onion", "chicken breast"), in lower case, without brands, packaging or quantities. Leave out anything that isn\'t food. If you can\'t tell what something is, leave it out rather than guess.',
+      'List the food ingredients you can see in this photo, such as the contents of a fridge, a cupboard or a kitchen counter. Name each one the way a recipe would (for example "cheddar cheese", "red onion", "chicken breast"), in lower case, without brands, quantities or words like "organic" or "free-range". A packaged product is the product, not its main ingredient: a tin of tomato puree is "tomato puree", a bottle of ketchup is "tomato ketchup", never "tomato". Leave out packaging, utensils and anything that isn\'t food. If the photo shows a cooked or plated dish rather than ingredients, don\'t list what might be in it: put the dish\'s name in "dish" and leave the ingredients out. If you can\'t tell what something is, leave it out rather than guess. Leave "dish" empty when there is no cooked dish.',
   },
   list: {
     prompt:
-      "This is a photo of a shopping list or ingredient list, printed or handwritten. Read each food item on it and name it the way a recipe would, in lower case, without quantities, units, brands or prices. Skip crossed-out items and anything that isn't food. If a word is hard to read, give your best reading and mark it low confidence.",
+      'This is a photo of a shopping list or ingredient list, printed or handwritten. Read each food item on it and name it the way a recipe would, in lower case, without quantities, units, brands, prices or words like "organic" or "free-range". Skip crossed-out items and anything that isn\'t food. If a word is hard to read, give your best reading and mark it low confidence. Leave "dish" empty.',
   },
 }
 
@@ -28,8 +28,9 @@ const CACHE_SIZE = 200
 const SCHEMA = {
   type: "object",
   additionalProperties: false,
-  required: ["items"],
+  required: ["items", "dish"],
   properties: {
+    dish: { type: "string" },
     items: {
       type: "array",
       items: {
@@ -132,7 +133,15 @@ export const readIngredients = async ({ messages, mode, mediaType, data }) => {
   if (response.stop_reason === "max_tokens") return { status: "failed" }
   const text = response.content.find(block => block.type === "text")?.text
   try {
-    return { status: "ok", items: cleanItems(JSON.parse(text).items) }
+    const parsed = JSON.parse(text)
+    return {
+      status: "ok",
+      items: cleanItems(parsed.items),
+      // A cooked dish rather than ingredients: named, so the page can offer recipes for it.
+      dish: String(parsed.dish || "")
+        .trim()
+        .slice(0, 80),
+    }
   } catch {
     return { status: "failed" }
   }
@@ -187,7 +196,7 @@ export const handleScan = async ({
   if (cache.has(key))
     return {
       status: 200,
-      json: { ok: true, items: cache.get(key), cached: true },
+      json: { ok: true, ...cache.get(key), cached: true },
     }
 
   if (!allow(ip, now))
@@ -224,6 +233,7 @@ export const handleScan = async ({
       "We couldn't read that photo right now. Try again in a minute."
     )
 
-  remember(key, result.items)
-  return { status: 200, json: { ok: true, items: result.items } }
+  const found = { items: result.items, dish: result.dish }
+  remember(key, found)
+  return { status: 200, json: { ok: true, ...found } }
 }

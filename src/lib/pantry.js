@@ -480,6 +480,7 @@ export const recommend = (
     have = [],
     exclude = [],
     diet = "",
+    cuisine = "",
     assumeBasics = true,
     sort = "match",
   } = {}
@@ -490,6 +491,7 @@ export const recommend = (
 
   const results = []
   for (const recipe of recipes) {
+    if (cuisine && recipe.cuisine !== cuisine) continue
     const ingredients = ingredientsOf(recipe)
     if (excludeN.some(x => ingredients.some(i => excludes(x, i.n)))) continue
     if (diet) {
@@ -545,16 +547,25 @@ export const pantryFromSearch = search => {
     have: list(params.get("have")),
     exclude: list(params.get("not")),
     diet: DIETS[diet] ? diet : "",
+    cuisine: params.get("cuisine") || "",
     assumeBasics: params.get("basics") !== "0",
     sort: SORTS[sort] ? sort : "match",
   }
 }
 
-export const pantryToSearch = ({ have, exclude, diet, assumeBasics, sort }) => {
+export const pantryToSearch = ({
+  have,
+  exclude,
+  diet,
+  cuisine,
+  assumeBasics,
+  sort,
+}) => {
   const params = new URLSearchParams()
   if (have.length) params.set("have", have.join(","))
   if (exclude.length) params.set("not", exclude.join(","))
   if (diet) params.set("diet", diet)
+  if (cuisine) params.set("cuisine", cuisine)
   if (!assumeBasics) params.set("basics", "0")
   if (sort && sort !== "match") params.set("sort", sort)
   const query = params.toString().replace(/%2C/g, ",")
