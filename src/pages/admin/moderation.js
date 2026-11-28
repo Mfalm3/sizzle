@@ -19,7 +19,7 @@ const QUEUES = [
   "rejected",
 ]
 
-const Detail = ({ recipe, onDone }) => {
+const Detail = ({ recipe, ownRecipe, onDone }) => {
   const [photoUrl, setPhotoUrl] = useState(null)
   const [note, setNote] = useState("")
   const [state, setState] = useState({ status: "idle" })
@@ -76,6 +76,8 @@ const Detail = ({ recipe, onDone }) => {
 
   const busy = state.status === "busy"
   const reviewing = ["submitted", "under_review"].includes(recipe.status)
+  // The database refuses self-review; say so instead of offering buttons that would fail.
+  const selfReview = reviewing && ownRecipe
 
   return (
     <div className="grid gap-6 border-t border-line p-5 lg:grid-cols-[1fr_16rem]">
@@ -125,7 +127,12 @@ const Detail = ({ recipe, onDone }) => {
             <p className="text-sm text-muted">Loading photo…</p>
           ))}
 
-        {reviewing && (
+        {selfReview && (
+          <p className="rounded-lg bg-saffron-soft p-3 text-sm">
+            This is your own recipe, so another moderator has to review it
+          </p>
+        )}
+        {reviewing && !selfReview && (
           <>
             <div>
               <label
@@ -225,7 +232,7 @@ const Queue = ({ session }) => {
     const { data } = await getSupabase()
       .from("recipes")
       .select(
-        "id, title, description, category, cuisine, ingredients, method, image_path, status, review_note, submitted_at, author:profiles!recipes_author_id_fkey(display_name)"
+        "id, title, description, category, cuisine, ingredients, method, image_path, status, review_note, submitted_at, author_id, author:profiles!recipes_author_id_fkey(display_name)"
       )
       .eq("status", queue)
       .order("submitted_at", { ascending: true })
@@ -298,6 +305,7 @@ const Queue = ({ session }) => {
               {open === recipe.id && (
                 <Detail
                   recipe={recipe}
+                  ownRecipe={recipe.author_id === session.user.id}
                   onDone={message => {
                     setNotice(message)
                     setOpen(null)
