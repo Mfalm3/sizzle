@@ -70,3 +70,9 @@ yarn-error.log
 
 # Playwright MCP screenshots
 .playwright-mcp/
+
+# Agent skills installed locally (Supabase skills etc.)
+.agents/
+.claude/
+.grok/
+skills-lock.json
